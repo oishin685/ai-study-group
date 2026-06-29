@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-label="AIの回答の信頼度を示す横棒グラフ">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e3f6f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#263332" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="1672" height="941" fill="url(#bg)"/>
+  <path d="M0 704 C210 630 380 768 584 696 C774 630 913 500 1115 576 C1332 658 1460 530 1672 478 L1672 941 L0 941 Z" fill="#cdeeee" opacity="0.72"/>
+  <circle cx="1454" cy="136" r="44" fill="#d8f1ef"/>
+  <circle cx="176" cy="782" r="36" fill="#d8f1ef"/>
+  <circle cx="1540" cy="792" r="8" fill="#47b8bd"/>
+  <circle cx="118" cy="196" r="9" fill="#47b8bd"/>
+
+  <g transform="translate(146 92)">
+    <text x="0" y="0" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif" font-size="54" font-weight="900" fill="#263332">AIの答えはどれくらい信頼できる？</text>
+    <text x="2" y="62" font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif" font-size="26" font-weight="700" fill="#60716f">内容によって信頼度は変わります。大事なことは自分でも確認。</text>
+  </g>
+
+  <g transform="translate(146 220)" filter="url(#shadow)">
+    <rect width="1380" height="590" rx="28" fill="#fffdf8" opacity="0.96"/>
+  </g>
+
+  <g font-family="Hiragino Sans, Yu Gothic, Meiryo, sans-serif">
+    <g transform="translate(230 306)">
+      <text x="0" y="0" font-size="33" font-weight="900" fill="#263332">料理の作り方</text>
+      <text x="0" y="38" font-size="23" font-weight="700" fill="#657571">一般的なレシピは高精度</text>
+      <rect x="330" y="-28" width="760" height="44" rx="22" fill="#e8efed"/>
+      <rect x="330" y="-28" width="722" height="44" rx="22" fill="#2fb36f"/>
+      <text x="1132" y="8" font-size="38" font-weight="900" fill="#2b8d5a">95%</text>
+    </g>
+    <g transform="translate(230 410)">
+      <text x="0" y="0" font-size="33" font-weight="900" fill="#263332">学習・教育</text>
+      <text x="0" y="38" font-size="23" font-weight="700" fill="#657571">確立された知識は信頼できる</text>
+      <rect x="330" y="-28" width="760" height="44" rx="22" fill="#e8efed"/>
+      <rect x="330" y="-28" width="669" height="44" rx="22" fill="#74bd54"/>
+      <text x="1132" y="8" font-size="38" font-weight="900" fill="#5a9c42">88%</text>
+    </g>
+    <g transform="translate(230 514)">
+      <text x="0" y="0" font-size="33" font-weight="900" fill="#263332">歴史的事実</text>
+      <text x="0" y="38" font-size="23" font-weight="700" fill="#657571">大まかな事実はOK、細部は誤りも</text>
+      <rect x="330" y="-28" width="760" height="44" rx="22" fill="#e8efed"/>
+      <rect x="330" y="-28" width="623" height="44" rx="22" fill="#b7bf42"/>
+      <text x="1132" y="8" font-size="38" font-weight="900" fill="#8f9634">82%</text>
+    </g>
+    <g transform="translate(230 618)">
+      <text x="0" y="0" font-size="33" font-weight="900" fill="#263332">医療情報</text>
+      <text x="0" y="38" font-size="23" font-weight="700" fill="#657571">個人差・最新情報に弱い</text>
+      <rect x="330" y="-28" width="760" height="44" rx="22" fill="#e8efed"/>
+      <rect x="330" y="-28" width="456" height="44" rx="22" fill="#f0a13a"/>
+      <text x="1132" y="8" font-size="38" font-weight="900" fill="#cc7c20">60%</text>
+    </g>
+    <g transform="translate(230 722)">
+      <text x="0" y="0" font-size="33" font-weight="900" fill="#263332">SNS情報</text>
+      <text x="0" y="38" font-size="23" font-weight="700" fill="#657571">リアルタイム情報は持っていない</text>
+      <rect x="330" y="-28" width="760" height="44" rx="22" fill="#e8efed"/>
+      <rect x="330" y="-28" width="190" height="44" rx="22" fill="#dc6656"/>
+      <text x="1132" y="8" font-size="38" font-weight="900" fill="#c54d40">25%</text>
+    </g>
+  </g>
+</svg>

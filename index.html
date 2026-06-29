@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI部 第1回 資料1 AI超入門 v0.4</title>
+  <style>
+    :root {
+      --bg: #f8f4ec;
+      --paper: #fffdf8;
+      --ink: #263332;
+      --body: #5f6d6b;
+      --muted: #87928f;
+      --accent: #2d7d6f;
+      --accent-soft: #e0f3f0;
+      --line: #ded5c8;
+      --shadow: 0 22px 46px rgba(54, 68, 66, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Zen Maru Gothic", "Hiragino Sans", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    .deck {
+      display: grid;
+      gap: 28px;
+      padding: 24px 0 56px;
+    }
+
+    .slide {
+      display: block;
+      padding: 0 clamp(10px, 3vw, 22px);
+    }
+
+    .canvas {
+      position: relative;
+      width: min(720px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .canvas::before {
+      content: "";
+      grid-column: 1;
+      grid-row: 1 / -1;
+      background: var(--accent);
+    }
+
+    .copy {
+      grid-column: 2;
+      grid-row: 1;
+      z-index: 2;
+      min-width: 0;
+      display: grid;
+      align-content: center;
+      padding: clamp(34px, 7vw, 56px) clamp(22px, 6vw, 48px) clamp(28px, 5vw, 42px);
+    }
+
+    .meta {
+      margin-bottom: 34px;
+      color: var(--accent);
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 800;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 44px;
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .cover h1 {
+      font-size: 54px;
+      line-height: 1.12;
+    }
+
+    .subtitle {
+      margin-top: 24px;
+      color: var(--body);
+      font-size: 25px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .body {
+      max-width: 540px;
+      margin: 58px 0 0;
+      color: var(--body);
+      font-size: 21px;
+      line-height: 1.74;
+      font-weight: 500;
+    }
+
+    .body.compact {
+      margin-top: 44px;
+      font-size: 19px;
+      line-height: 1.68;
+    }
+
+    .insight {
+      width: min(540px, 100%);
+      margin-top: 42px;
+      padding: 22px 28px 22px 26px;
+      border-left: 8px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: rgba(255, 253, 248, 0.94);
+      box-shadow: 0 12px 28px rgba(62, 74, 72, 0.09);
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.58;
+      font-weight: 800;
+    }
+
+    .visual {
+      grid-column: 2;
+      grid-row: 2;
+      min-width: 0;
+      position: relative;
+      overflow: visible;
+      background: var(--accent-soft);
+    }
+
+    .visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .image-speech {
+      position: absolute;
+      z-index: 2;
+      color: var(--ink);
+      font-size: clamp(14px, 2.7vw, 21px);
+      line-height: 1.42;
+      font-weight: 800;
+      letter-spacing: 0;
+      pointer-events: none;
+    }
+
+    .memory-speech {
+      top: 24%;
+      left: 30%;
+      width: 40%;
+      height: 20%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .visual::after {
+      content: none;
+    }
+
+    .reverse .copy {
+      grid-column: 2;
+    }
+
+    .reverse .visual {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .reverse .visual::after {
+      content: none;
+    }
+
+    .footer {
+      position: static;
+      grid-column: 2;
+      grid-row: 3;
+      align-self: end;
+      z-index: 3;
+      padding: 18px clamp(22px, 6vw, 48px) 30px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .reverse .footer {
+      justify-self: start;
+    }
+
+    .number {
+      position: static;
+      grid-column: 2;
+      grid-row: 3;
+      justify-self: end;
+      align-self: end;
+      z-index: 3;
+      padding: 18px clamp(22px, 6vw, 48px) 30px;
+      color: rgba(38, 51, 50, 0.44);
+      font-size: 12px;
+    }
+
+    .summary {
+      grid-column: 2;
+    }
+
+    .summary-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 34px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--body);
+      font-size: 18px;
+      line-height: 1.48;
+      font-weight: 600;
+    }
+
+    .summary-list li {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .summary-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.78em;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    @media (max-width: 760px) {
+      .slide {
+        padding: 0 10px;
+      }
+
+      .canvas {
+        width: 100%;
+      }
+
+      .copy,
+      .reverse .copy,
+      .summary {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 34px 22px 28px;
+      }
+
+      .visual,
+      .reverse .visual {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .visual::after,
+      .reverse .visual::after {
+        content: none;
+      }
+
+      .meta {
+        margin-bottom: 18px;
+        font-size: 12px;
+      }
+
+      h1,
+      h2,
+      .cover h1 {
+        font-size: clamp(27px, 8vw, 38px);
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        margin-top: 16px;
+        font-size: 18px;
+      }
+
+      .body,
+      .body.compact {
+        margin-top: 26px;
+        font-size: clamp(15px, 4.25vw, 18px);
+        line-height: 1.62;
+      }
+
+      .insight {
+        margin-top: 26px;
+        padding: 16px 18px 16px 16px;
+        border-left-width: 6px;
+        font-size: clamp(15px, 4.2vw, 17px);
+        line-height: 1.5;
+      }
+
+      .summary-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 28px;
+        font-size: clamp(14px, 3.8vw, 17px);
+        line-height: 1.5;
+      }
+
+      .footer,
+      .reverse .footer {
+        padding: 16px 22px 24px;
+        font-size: 11px;
+      }
+
+      .number {
+        padding: 16px 22px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide cover">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">00｜表紙</div>
+          <h1>AIって<br>なんだろう？</h1>
+          <p class="subtitle">使いはじめる前に<br>知っておきたいこと。</p>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-01-cover.png" alt="AIについて考える女性の明るいイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">01 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">01｜AIの仕組み</div>
+          <h2>AIは“次の言葉”を<br>選ぶ仕組み</h2>
+          <p class="body">今のAIは、自分で考えて答える個別の存在ではありません。膨大な情報から、次に来そうな言葉や最適な回答を選択している超高性能予測機です。</p>
+          <div class="insight">AIは“賢い予測機”。人間のように意識的に対応・行動しているわけではありません。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-02-next-words-human-android-20260629.png" alt="人間に近いアンドロイドとデータ処理AIを対比するイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">02 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">01｜AIの仕組み</div>
+          <h2>だから、人間とは<br>違う</h2>
+          <p class="body">人間は「本当かな？」と内側で確かめながら話す。AIにはそのチェックがない。だから何でも断定形で返してくる。内容の確認は自分でする習慣が大切です。</p>
+          <div class="insight">人間のように話してくれるから、つい同じように考えているように感じてしまう。でも見た目の「人間らしさ」と、内側の「仕組み」はまったくの別物。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-03-not-human.png" alt="鏡の映り込みで見た目が似ていても違うことを示すイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">03 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">01｜AIの仕組み</div>
+          <h2>“もっともらしい言葉”を<br>選んでいるだけ</h2>
+          <p class="body compact">AIは「正しい答えを知っている」わけではなく、「それらしく聞こえる言葉」を選んでいます。だから知らないことでも、自信満々に答えてしまうことがあります。</p>
+          <div class="insight">自信ありげに話していても、鵜呑みにしない。「本当に？」と聞き返していい。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-08-plausible-words.png" alt="自信ありげな発話と冷静に見ている人物のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">04 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">02｜AIの限界と向き合い方</div>
+          <h2>事実の保証は<br>できない</h2>
+          <p class="body compact">AIでも必ずしも情報は正しいとは限りません。医療・法律・お金の専門的な判断もできません。大事なことは、自分でも確認する習慣が大切です。</p>
+          <div class="insight">AIの答えは「参考意見」。「８割くらいは正しい」くらいの感覚で使っていくことが大切です。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-05-trust-gauge-20260629.svg" alt="AIの回答の信頼度をカテゴリ別に示す横棒グラフ">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">05 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">02｜AIの限界と向き合い方</div>
+          <h2>違和感があれば、<br>確認すればいい</h2>
+          <p class="body">「それ、正しい？」「別の角度から教えて」「もっと簡単に言って」と聞き直すだけで、答えの質が上がることがあります。AIとの会話は一問一答ではなく、対話しながら育てていくものです。</p>
+          <div class="insight">違和感があれば聞き直す。それだけで返答はぐっと良くなります。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-09-confirm-again.png" alt="スマホを見ながら確認し直す女性のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">06 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">03｜AIの使い方</div>
+          <h2>文章を書く・整理する・<br>アイデアを出す</h2>
+          <p class="body compact">LINEのお礼文、献立のアイデア、旅行プランのたたき台。ゼロから一人で考えるより、AIに叩き台を出してもらって、自分で整える方が早くて楽です。</p>
+          <div class="insight">「ゼロから考える」より「AIに叩き台をもらって整える」が楽。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-04-writing-ideas.png" alt="スマホで文章やアイデア作りをしている女性のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">07 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">03｜AIの使い方</div>
+          <h2>自分の考えを<br>「言語化」する相手</h2>
+          <p class="body compact">「なんとなくモヤモヤしている」ことをAIに話すと、整理されて返ってくる。答えをもらうより、自分の気持ちや考えが言葉になる感覚。うまく伝えられなくても大丈夫。話しながら、自分でも気づいていなかったことが見えてくる。</p>
+          <div class="insight">「答えをもらう」より「自分の考えが言葉になる」。AIは思考の整理を手伝ってくれる。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-10-thinking-partner.png" alt="人とAIが並んで同じものを見ながら考えるイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">08 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">03｜AIの使い方</div>
+          <h2>相談相手として<br>使う</h2>
+          <p class="body">悩みを整理したい、選択肢を並べたい、背中を押してほしい。そんなときの話し相手にもなります。「どう思う？」「他にどんな方法がある？」と聞くだけで、頭の中が整理されることがあります。AIと対話することで一人ではできなかった言語化が進み、自然と頭の中が整理されていきます。</p>
+          <div class="insight">正解を出してもらうより、「整理を手伝ってもらう」使い方が便利です。AIの回答を鵜呑みにするのではなく、腑に落ちるかどうかを大切に</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-05-consultation.png" alt="リラックスしてスマホに相談している女性のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">09 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">03｜AIの使い方</div>
+          <h2>使い続けると、<br>育っていく</h2>
+          <p class="body">自分の好みや事情を教えるほど、返答が的確になります。「私は料理が苦手で、子どもが二人います」と伝えると、献立の提案も変わります。「私専用」に育てる感覚です。</p>
+          <div class="insight">使い続けるほど、自分に合ったAIになっていきます。思いもしなかったヒントを得られることも少なくありません。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-11-grow-together.png" alt="AIを植物のように育てる比喩のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">10 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">03｜AIの使い方</div>
+          <h2>記憶は続かない<br>ことがある</h2>
+          <p class="body compact">「私は〇〇が好きで、〇〇をしています」と自分のことを伝えると返答の質が上がります。しかし無料版では会話が終わると記憶がリセットされる場合があります。毎回伝え直す必要があります。</p>
+          <div class="insight">自分の情報を定型文として作成し、簡単にコピペできるようにしておくと便利です。</div>
+        </div>
+        <figure class="visual memory-visual">
+          <img src="assets/imagegen-v5/slide-07-memory-reset.png" alt="記憶がリセットされて初対面のようにふるまうAIに戸惑う女性のイラスト">
+          <span class="image-speech memory-speech">はじめまして、<br>あなたは誰ですか？</span>
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">11 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">04｜無料版と有料版</div>
+          <h2>無料版で<br>できること</h2>
+          <p class="body">文章作成、アイデア出し、質問への回答、日常の相談。これだけでも毎日の生活で十分役立ちます。ChatGPT・Geminiともに無料版があり、まず試す入口になります。</p>
+          <div class="insight">まずは無料から。「もっと便利な機能を使いたい」と感じてから有料を考えれば大丈夫です。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-12-free-version.png" alt="スマホでAIを使えて明るい表情の女性のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">12 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">04｜無料版と有料版</div>
+          <h2>有料版で<br>できること</h2>
+          <p class="body compact">画像生成などの使用回数の上限が広がる、過去の会話を覚えてくれるメモリ機能が使える、より安定した高精度な回答が得られる、音声でリアルタイム会話ができる、など。月額1,200〜約3,000円台が多いですが、最初は無料で十分です。</p>
+          <div class="insight">有料版は「必要になったら考える」もの。最初は無料で試しながら自分にあったAIを見つけよう。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-13-paid-treasure-20260629.svg" alt="有料版で使える機能が宝箱から出てくるフラットイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">13 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">05｜スマホとPCの違い</div>
+          <h2>スマホで<br>できること</h2>
+          <p class="body">ChatGPTアプリやGeminiアプリで、文章作成・質問・相談ができます。音声入力で話しかけるだけでも使えます。外出中、移動中、家事の合間に使えるのがスマホの強みです。</p>
+          <div class="insight">スマホだけで、AIの基本的な使い方はほぼすべてできます。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-14-smartphone.png" alt="スマホから料理アイデアやメモの吹き出しが出ているイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">14 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">05｜スマホとPCの違い</div>
+          <h2>PCでしか<br>できないこと</h2>
+          <p class="body compact">LP（ランディングページ）の制作や、簡単なアプリ・ツールの制作はPCが必要です。ただし、これらはAIの有料版を使うことが前提になることが多いです。スマホは「AIを使う」道具。PCは「AIで作る」道具。「作る」を目指すなら、有料版を検討するタイミングでもあります。</p>
+          <div class="insight">スマホは「使う」道具。PCは「作る」道具。「作る」ことを目指したくなったときが、有料版を考えるサインかもしれません。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/imagegen-v5/slide-15-pc-create.png" alt="PCでランディングページやツールを作っている女性のイラスト">
+        </figure>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">15 / 16</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy summary">
+          <div class="meta">06｜クロージング</div>
+          <h2>まとめ</h2>
+          <ul class="summary-list">
+            <li>まず話しかけてみよう。答えより、対話が大事</li>
+            <li>100パーセント正しいわけじゃない。大事なことは自分で確認する</li>
+            <li>間違えてもいい。やり直せばいい。AIは怒らない</li>
+            <li>モヤモヤしたら話しかけよう。言葉にすることで、頭の中が整理される</li>
+            <li>自分のことを教えよう。伝えるほど返答が良くなる</li>
+            <li>上手く使おうとしなくていい。使い続けることが一番の上達</li>
+            <li>無料から試して、物足りなくなったら有料を考えよう</li>
+            <li>スマホで使って、作りたくなったらPCへ</li>
+          </ul>
+        </div>
+        <div class="footer">AI部 第1回｜v0.4</div>
+        <div class="number">16 / 16</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
