@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #fffdfc;
+}
+
+body {
+  margin: 0;
+  background: #fffdfc;
+}
+
+.slides {
+  width: min(100%, 1600px);
+  margin-inline: auto;
+}
+
+.slides img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
