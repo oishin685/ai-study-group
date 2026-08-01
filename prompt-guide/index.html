@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI初心者向け。AIへの指示の出し方を、すぐ使える例と一緒にやさしく紹介します。">
+  <meta name="theme-color" content="#fffaf4">
+  <title>AIへの指示の出し方 | AI部</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d95765'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white'%3EAI%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="AI部の資料トップへ">
+      <span class="brand__mark" aria-hidden="true">AI</span>
+      <span class="brand__name">AI部</span>
+    </a>
+    <a class="header-link" href="../glossary/">AI用語集</a>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">AI初心者向け</p>
+      <h1 id="page-title">AIへの<br><span>指示の出し方</span></h1>
+      <p class="hero__lead">上手な指示を書けなくても大丈夫。<br>気になる項目をタップして、すぐ試してみよう。</p>
+      <div class="hero__note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-4.3 12.5c.8.6 1.3 1.3 1.5 2.1h5.6c.2-.8.7-1.5 1.5-2.1A7 7 0 0 0 12 3Zm-2.2 18h4.4"/></svg>
+        <p>最初から完璧に伝える必要はありません。AIと話しながら、少しずつ整えれば大丈夫です。</p>
+      </div>
+    </section>
+
+    <nav class="category-nav" aria-labelledby="category-title">
+      <h2 id="category-title">気になるところから見る</h2>
+      <div class="category-nav__links">
+        <a href="#communicate">AIへの伝え方</a>
+        <a href="#clear-answer">分かりやすい答え</a>
+        <a href="#voice-and-screen">音声・スクショ</a>
+        <a href="#safe-use">安全に使う</a>
+        <a href="#chat-and-project">チャットの使い方</a>
+        <a href="#extra">番外編</a>
+      </div>
+    </nav>
+
+    <div class="toolbar" aria-label="項目の表示を切り替える">
+      <p><span id="open-count">0</span>件の詳しい説明を表示中</p>
+      <div class="toolbar__buttons">
+        <button type="button" id="open-all">すべて開く</button>
+        <button type="button" id="close-all">すべて閉じる</button>
+      </div>
+    </div>
+
+    <section class="guide-section" id="communicate" aria-labelledby="communicate-title">
+      <header class="section-heading">
+        <p>まず試したい</p>
+        <h2 id="communicate-title">AIへの伝え方</h2>
+      </header>
+
+      <details class="guide-card" id="together">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">一緒に考えて</span>
+            <span class="tip-short">何をどう相談すればいいかわからないときも、きっちり指示を作る必要はありません。まとまっていない考えをそのまま話して、「一緒に考えて」と伝えてみよう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>「良い答えをもらうには、最初から上手な質問や細かな指示を作らなければならない」と思う必要はありません。</p>
+            <p>企画や悩みごとのように、まだ答えが決まっていないことは、考えがまとまる前からAIへ相談できます。思いついたこと、迷っていること、気になることを、そのまま材料として渡します。</p>
+            <p>AIを「正解を教えてくれる相手」ではなく、「一緒に問いや可能性を見つける相手」として使う考え方です。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>新しい企画を考えたいです。<br>家族でも楽しめるものにしたいけれど、準備が大変なのは困ります。<br>まだ考えがまとまっていません。一緒に考えて。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>思いついた順に話してよい</li>
+              <li>「ほかの見方はある？」「見落としていることはある？」と対話を続ける</li>
+              <li>目的や完成形が決まっている作業では、具体的な指示も伝える</li>
+              <li>AIへ判断を任せきらず、最後は自分で考えて決める</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="purpose-first">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">最初に「何のため」を伝える</span>
+            <span class="tip-short">「○○を作って」だけでなく、「家族に分かりやすく伝えるために、○○を作って」のように、最初に「何のため」を伝えよう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>AIは、伝えられた情報を手がかりに答えを作ります。何を作るかだけでは、何を目指せばよいのか分からず、内容は間違っていなくても希望とずれることがあります。</p>
+            <p>最初に目的を伝えると、AIはその目的に合う内容、言葉、順番を考えやすくなります。必要な場合は、「誰に」「どうしてほしいか」も加えます。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>目的は、地域の高齢者にも安心して参加してもらうことです。<br>そのために、イベントのお知らせを作ってください。<br>難しい言葉は使わないでください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>「何を作るか」より先に「何のために使うか」を考える</li>
+              <li>目的が自分でも分からないときは、AIに質問してもらいながら整理する</li>
+              <li>目的に関係のない細かな条件を、最初から全部並べる必要はない</li>
+              <li>目的を決めるのは人、目的をかなえる方法を一緒に考えるのがAI</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="four-points">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">指示に入れたい4つのこと</span>
+            <span class="tip-short">AIに頼むときは、『何のために』『どんな前提や例があるか』『どんな形で答えてほしいか』『守ってほしい条件』の4つを意識しよう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>AIへ頼む内容が少し複雑なときは、次の4つを意識すると、希望をまとめて伝えやすくなります。</p>
+            <dl class="four-points">
+              <div><dt>何のために</dt><dd>今回の目的</dd></div>
+              <div><dt>どんな前提や例があるか</dt><dd>状況、相手、使う場面、参考にしたい見本</dd></div>
+              <div><dt>どんな形で答えてほしいか</dt><dd>文章、表、箇条書き、案の数、長さ</dd></div>
+              <div><dt>守ってほしい条件</dt><dd>使わない言葉、予算、期限、文字数など</dd></div>
+            </dl>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>何のために：久しぶりに会う友人をランチへ誘いたい<br>前提や例：気軽に話せる友人。かしこまりすぎない言い方<br>答えの形：LINEの文章を3案<br>守ってほしい条件：3行以内。絵文字は使わない</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>毎回4つを完璧にそろえなくてもよい</li>
+              <li>分かっているものから伝え、足りないことはAIに質問してもらう</li>
+              <li>「答えの形」は、表、箇条書き、3案、3行以内など具体的にする</li>
+              <li>前提や例の中へ、個人情報や秘密情報を入れない</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="ask-me">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">AIに質問してもらいながら進める</span>
+            <span class="tip-short">何から話せばよいかわからないときは、「私に質問しながら進めて」と伝えよう。AIに聞き役になってもらえます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>「何を伝えればよいのか分からない」「質問の作り方が分からない」というときは、自分だけで完璧な質問を作ろうとせず、AIから質問してもらいます。</p>
+            <p>まず相談したいことだけを簡単に伝え、良い答えを出すために必要なことを、AIに一つずつ聞いてもらいます。質問へ答えていくうちに、自分の希望や条件も整理されます。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>町内イベントの内容を考えたいです。<br>良い案を出すために、必要なことを3つに絞って質問してください。<br>質問は1つずつしてください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>質問は一度にたくさん出さず、1つずつ聞いてもらう</li>
+              <li>大切な質問だけに絞ってもらう</li>
+              <li>答えたくない質問には「パスします」と伝えてよい</li>
+              <li>個人情報や秘密に関わる質問には答えない</li>
+              <li>最後に、回答した内容をAIに整理してもらう</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="three-options">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">自分でゼロから考えず、AIに3案出してもらう</span>
+            <span class="tip-short">何もないところから一つの案を考えるより、まずAIに3案出してもらおう。比べながら考えると、自分に合う案を見つけやすくなります。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>これは「自分で考えなくてよい」という意味ではありません。自分だけで一つの案を決めてからAIへ頼むのではなく、先にAIから複数の選択肢を出してもらい、人が比べて考える使い方です。</p>
+            <p>違い、理由、良い点、注意点も一緒に聞くと、自分だけでは思いつかなかった可能性を含めて考えられます。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>○○について、おすすめの案を3つ出してください。<br>おすすめ順に並べ、それぞれの理由と注意点も短く教えてください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>最初から一つの方法に決めない</li>
+              <li>良い案を出すために必要なことがあれば、先に質問してもらう</li>
+              <li>良い部分を組み合わせたり、合わない部分を直したりしてよい</li>
+              <li>AIは選択肢を広げる役、人は比べて判断する役</li>
+              <li>AIのおすすめをそのまま正解だと思わず、最後は自分で決める</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="show-example">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">言葉で説明するより、見本を見せる</span>
+            <span class="tip-short">細かく説明するより、希望に近い事例を1つ見せて「これを参考にして」と伝えよう。形や雰囲気まで伝わりやすくなります。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>「短く」「明るく」「シンプルに」「見やすく」と言っても、人によって思い浮かべるものは違います。言葉だけで細かく説明し続けるより、希望に近い事例を見せた方が、完成イメージを伝えやすいことがあります。</p>
+            <p>見本にできるものは、文章だけではありません。</p>
+            <ul>
+              <li>希望に近い文章</li><li>チラシや資料</li><li>好みの画像やデザイン</li><li>見やすい表</li><li>使いやすい画面</li><li>完成イメージに近い写真やイラスト</li>
+            </ul>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>この見本を参考にしてください。<br>色合い、情報の並べ方、余白の使い方を参考にし、内容は次に伝えるイベント情報へ置き換えてください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>自分の希望に一番近い見本を1つ選ぶ</li>
+              <li>どの部分を参考にしてほしいか伝える</li>
+              <li>内容をそのままコピーさせず、形や雰囲気の参考にしてもらう</li>
+              <li>個人情報が写った画像や、勝手に利用できないものを使わない</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="rewrite-question">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">なんか違うな？と感じたら、元の質問を書き換える</span>
+            <span class="tip-short">思い通りの答えが返ってこないときは、あとから訂正を重ねるより、最初の質問に足りなかった情報を加えて書き直そう。AIとの認識のずれを減らせます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>AIの答えが大きくずれているときに、「違います」「そうではなくて」と訂正を重ねると、最初の質問と後から加えた訂正が同じ会話に残ります。そのため、どの条件を大切にすればよいのか分かりにくくなることがあります。</p>
+            <p>そんなときは、最初の質問へ戻り、足りなかった目的、前提、例、答えの形、条件などを加えて、質問自体を書き直します。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>書き換えの例</h3><button class="copy-button" type="button">書き換え後をコピー</button></div>
+            <p class="example-label">最初の質問</p>
+            <blockquote class="before">家族旅行の案を出して。</blockquote>
+            <p class="example-label">書き換えた質問</p>
+            <blockquote>70代の母と一緒に行く、日帰りの家族旅行を考えています。<br>車は使いません。移動が少ない案を3つ、表で出してください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>まず「何が違ったのか」「何が足りなかったのか」を一つ見つける</li>
+              <li>元の質問を編集できる場合は、足りない情報を加えて答えを作り直してもらう</li>
+              <li>編集できない場合は、質問をコピーして書き直し、新しいチャットで聞き直す</li>
+              <li>少しだけ直したい場合は、会話を続けて追加指示してもよい</li>
+              <li>元の質問を大きく変えた場合、その後の回答も変わることを確認する</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="clear-answer" aria-labelledby="clear-answer-title">
+      <header class="section-heading section-heading--purple">
+        <p>読みやすくする</p>
+        <h2 id="clear-answer-title">分かりやすく答えてもらう</h2>
+      </header>
+
+      <details class="guide-card" id="concise">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">簡潔に答えて</span>
+            <span class="tip-short">長い回答を読むのが大変なときは、「質問にだけ簡潔に答えて」と伝えよう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>AIは、質問への答えだけでなく、関連する説明や注意点まで長く返すことがあります。確認したいことが一つだけなら、質問の最後に「質問にだけ簡潔に答えて」と加えます。</p>
+            <p>結論だけがほしい場合は「結論だけ」、長さを決めたい場合は「3行以内で」のように伝えられます。詳しく知りたくなったら、そのあとで必要な部分だけ聞けば大丈夫です。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>このお知らせでは、事前の申し込みは必要ですか？<br>質問にだけ簡潔に答えて。</blockquote>
+            <p class="example-label">続けて理由も知りたい場合</p>
+            <blockquote class="secondary-example">その理由を短く教えて。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>今知りたいことが一つだけのときに使う</li>
+              <li>「結論だけ」「3行以内」「箇条書きで」のように調整する</li>
+              <li>医療、法律、お金などの大切な内容は、短い答えだけで判断しない</li>
+              <li>必要な注意点や根拠は、続けて詳しく確認する</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="junior-high">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">中学生でも分かるように説明して</span>
+            <span class="tip-short">難しい説明が返ってきたら、「中学生でも分かるように説明して」と伝えよう。専門用語が減り、全体像をつかみやすくなります。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>これは子ども向けの内容にするためではありません。難しい言葉を減らし、まず話の全体をつかむための頼み方です。</p>
+            <p>最初から詳しい説明をすべて理解しようとせず、まず大まかな意味を知り、そのあと気になるところだけ詳しく聞きます。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>中学生でも分かるように説明してください。<br>まず全体像を教えて、そのあと大切な部分を詳しく説明してください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>まだ簡単すぎる場合は「高校生向け」「大人の初心者向け」のように調整する</li>
+              <li>分からない言葉だけを選び、「この言葉を説明して」と聞いてもよい</li>
+              <li>やさしい説明では細かな違いが省かれることがある</li>
+              <li>大切な判断へ使うときは、詳しい説明や根拠も確認する</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="voice-and-screen" aria-labelledby="voice-and-screen-title">
+      <header class="section-heading section-heading--blue">
+        <p>早く、たくさん伝える</p>
+        <h2 id="voice-and-screen-title">音声・スクショを使う</h2>
+      </header>
+
+      <details class="guide-card" id="voice-input">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">音声入力で話す</span>
+            <span class="tip-short">考えをきれいな文章にしようとせず、人と話すようにAIへ話しかけよう。音声なら、思いやイメージをたくさん伝えられます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>文字で入力しようとすると、頭の中の思いやイメージを、整った文章へ変えることに時間がかかります。その間に、伝えたかったことが抜けたり、情報量が減ったりすることがあります。</p>
+            <p>音声入力なら、人へ話すように、思いついたことをそのまま伝えられます。言い直し、言葉の途切れ、少し不自然な文字起こしがあっても、AIは前後の流れから意味をくみ取り、整理できることが多いです。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>今から思いついたことを、そのまま話します。<br>話し終わったら、私が伝えたいことを整理してください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>文章を完成させてから話そうとしない</li>
+              <li>途中で言い直しても、そのまま続けてよい</li>
+              <li>最後に「要点を整理して」「私の意図を確認して」と頼む</li>
+              <li>人名、数字、日付、場所は文字起こしを確認する</li>
+              <li>周囲に聞かれたくないことや個人情報は話さない</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="screenshot">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">スクショで渡す</span>
+            <span class="tip-short">画面を文字や声で説明するより、スクショをそのままAIに渡す方が早い。「これ何？」と聞くだけで、AIが画面を見て答えてくれます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>画面を言葉で説明しようとすると、表示されている文章、ボタンの名前、並び方、エラーの位置などを一つずつ伝える必要があります。</p>
+            <p>スクリーンショットなら、画面の文字、ボタン、配置、色、表示されたエラーなどをまとめてAIへ見せられます。何を説明すればよいか分からないときにも使えます。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使い方の例</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>この画面は何をするためのものですか？<br>次に押す場所を、初心者にも分かるように教えてください。</blockquote>
+            <p class="example-label">エラーが表示された場合</p>
+            <blockquote class="secondary-example">このエラーは何を意味しますか？<br>まず安全に確認できることだけ教えてください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>分からない部分があれば、印を付けるか「右上の部分」と伝える</li>
+              <li>画面全体と、見てほしい部分の拡大を分けて渡してもよい</li>
+              <li>名前、住所、メール、写真、通知、会員番号などが写っていないか確認する</li>
+              <li>パスワード、認証コード、支払い情報が写ったスクショは渡さない</li>
+              <li>AIの画面説明が、実際のアプリや端末と合っているか確認する</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="safe-use" aria-labelledby="safe-use-title">
+      <header class="section-heading section-heading--orange">
+        <p>大切な注意</p>
+        <h2 id="safe-use-title">AIを安全に使う</h2>
+      </header>
+
+      <details class="guide-card" id="protect-private-info">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">個人情報などを伝えない</span>
+            <span class="tip-short">AIには、名前・住所・電話番号・パスワードなど、知られたくない情報をそのまま入れない。必要なときは、「Aさん」「○○市」のように置き換えよう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>個人情報や秘密情報は、文章だけでなく、音声、写真、スクリーンショット、ファイルの中にも含まれます。AIへ相談する前に、その情報が本当に必要か確認します。</p>
+            <p>自分の情報だけでなく、家族、友人、職場、取引先など、ほかの人の情報も本人の許可なく入れません。設定を変えていても、秘密にしたい情報を入力してよいという意味にはなりません。</p>
+          </section>
+          <section class="warning-list">
+            <h3>入力しないもの</h3>
+            <ul>
+              <li>本名、住所、電話番号、個人のメールアドレス</li>
+              <li>パスワード、暗証番号、認証コード</li>
+              <li>口座、カード、本人確認書類の情報</li>
+              <li>病歴や相談内容など、知られたくない情報</li>
+              <li>勤務先、取引先、顧客などの秘密情報</li>
+              <li>本人の許可を得ていない、ほかの人の情報</li>
+            </ul>
+          </section>
+          <section class="example replace-list">
+            <h3>置き換え方の例</h3>
+            <dl>
+              <div><dt>山田花子</dt><dd>Aさん</dd></div>
+              <div><dt>東京都○○区○丁目</dt><dd>○○市</dd></div>
+              <div><dt>株式会社○○</dt><dd>取引先</dd></div>
+              <div><dt>実際の売上金額</dt><dd>およその金額、または架空の数字</dd></div>
+            </dl>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>答えをもらうために必要な範囲まで、情報をぼかす</li>
+              <li>スクショやファイルは、見えない部分や小さな文字も確認する</li>
+              <li>迷ったら、仮名、架空の例、大まかな表現へ置き換える</li>
+              <li>パスワードや認証コードは、置き換えても相談材料にしない</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="verify-answer">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">AIの言うことを鵜呑みにしない</span>
+            <span class="tip-short">AIは、間違ったことも自信ありげに答えます。大切な内容は、「本当に正しい？」と確認してから使おう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>AIは、読みやすく整った文章を作れます。しかし、文章が自然で自信がありそうに見えても、内容が正しいとは限りません。</p>
+            <p>間違いだけでなく、根拠が弱い内容や、もっと良くできる内容が、完成した答えのように見えることもあります。最初の回答をそのまま受け入れず、根拠や弱いところを確認します。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>確認するときの指示</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>本当に正しいですか？<br>その根拠は何ですか？<br>もっとよくできるところを3つ、改善案と一緒に教えてください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>AIへ聞き直すだけで、正しいと確定したことにはならない</li>
+              <li>人名、日付、数字、料金、制度、最近変わった情報は別に確認する</li>
+              <li>重要な内容は、公式サイト、原文、実物など、元の情報へ戻って確認する</li>
+              <li>医療、法律、お金、安全に関わる判断は、AIだけで決めない</li>
+              <li>最後に使うかどうかを判断するのは人</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="chat-and-project" aria-labelledby="chat-and-project-title">
+      <header class="section-heading section-heading--mint">
+        <p>迷子にならない</p>
+        <h2 id="chat-and-project-title">チャット・プロジェクトの使い方</h2>
+      </header>
+
+      <details class="guide-card" id="new-chat">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">話が混乱したら、新しいチャットでやり直す</span>
+            <span class="tip-short">やり取りが長くなり、回答がかみ合わなくなったら、「新しいチャット用の引き継ぎを書いて」とAIに頼もう。それを新しいチャットに貼れば、続きから始められます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>一つのチャットで長くやり取りを続けると、古い条件、途中で変えた考え、不要になった話が混ざり、回答がかみ合わなくなることがあります。</p>
+            <p>そんなときは、現在の目的と決まったことをAIに整理してもらい、その引き継ぎを新しいチャットへ貼ります。最初から全部説明し直す必要はありません。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>引き継ぎを書かせる指示</h3><button class="copy-button" type="button">例文をコピー</button></div>
+            <blockquote>ここまでの内容を、新しいチャットへ引き継ぐためにまとめてください。<br>目的、決まったこと、未決事項、次にすることを入れてください。</blockquote>
+            <p class="example-label">新しいチャットでは</p>
+            <blockquote class="secondary-example">この引き継ぎの続きから始めてください。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>回答が急にかみ合わなくなったときに使う</li>
+              <li>引き継ぎを貼る前に、内容が自分の認識と合っているか確認する</li>
+              <li>不要な個人情報や秘密情報は、引き継ぎから取り除く</li>
+              <li>必要な画像やファイルは、新しいチャットで再度渡す必要がある場合がある</li>
+              <li>話題そのものが変わった場合も、新しいチャットへ分ける</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="one-project">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">テーマごとに「プロジェクト」を1つ作る</span>
+            <span class="tip-short">同じテーマの相談は、そのテーマ専用のプロジェクトにまとめよう。会話や資料が同じ場所に残るので、毎回最初から説明する手間を減らせます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>プロジェクトは、一つのテーマに関するチャットや資料をまとめる箱のようなものです。チャットは、その箱の中で行う一回ごとの会話です。</p>
+            <p>同じテーマの相談を一つのプロジェクトにまとめると、関連する会話や資料を見つけやすくなり、毎回同じ背景を説明する手間を減らせます。</p>
+          </section>
+          <section class="example">
+            <h3>プロジェクトの例</h3>
+            <ul class="tag-list"><li>旅行の計画</li><li>毎日の献立</li><li>AI部の準備</li><li>趣味の作品づくり</li><li>継続している仕事</li></ul>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>一つのプロジェクトへ、関係のないテーマを混ぜすぎない</li>
+              <li>話が変わったら、同じプロジェクト内で新しいチャットを作る</li>
+              <li>プロジェクト機能がないAIでは、チャット名やフォルダでテーマを分ける</li>
+              <li>使える機能や資料の扱いは、AIサービスやプランによって異なる</li>
+              <li>個人情報や秘密の資料を、保存場所代わりに入れない</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="extra" aria-labelledby="extra-title">
+      <header class="section-heading section-heading--yellow">
+        <p>もっと使いやすく</p>
+        <h2 id="extra-title">番外編</h2>
+      </header>
+
+      <details class="guide-card" id="easy-access">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">AIアプリをスマホの開きやすい場所に置く</span>
+            <span class="tip-short">AIは、使いたいと思った瞬間に開けることが大切。アプリを押しやすい場所に置き、ウィジェットやコントロールセンターも使って、すぐ開けるようにしよう。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>AIは、分からないことや思いついたことがある瞬間に使うと、日常へ取り入れやすくなります。アプリを探す手間があると、あとで聞こうと思ったまま忘れてしまいます。</p>
+            <p>自分のスマホで一番使いやすい開き方を一つ決めます。</p>
+          </section>
+          <section class="example">
+            <h3>開きやすくする方法</h3>
+            <ul>
+              <li>iPhone：ホーム画面の押しやすい場所へ置く</li>
+              <li>iPhone：対応しているウィジェットやコントロールセンターを使う</li>
+              <li>Android：ホーム画面の押しやすい場所へ置く</li>
+              <li>Android：対応しているウィジェットやクイック設定を使う</li>
+              <li>対応するAndroid端末では、電源ボタンやホームボタンの長押し、音声でAIを開く方法もある</li>
+            </ul>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>全部設定せず、自分が一番使いやすい方法を一つ選ぶ</li>
+              <li>音声入力やカメラを直接開ける方法があれば試す</li>
+              <li>使える方法や名前は、スマホ、OS、AIアプリによって異なる</li>
+              <li>端末の設定変更や権限の追加は、内容を確認して自分で行う</li>
+              <li>ロック画面から開く場合は、他人に見られたくない履歴や通知に注意する</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="dictionary">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">辞書登録の活用</span>
+            <span class="tip-short">よく使う長い指示は、スマホの辞書に登録しよう。「かんけつ」と打つだけで、「質問にだけ簡潔に答えて」のように呼び出せます。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>詳しく見る</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>詳しい説明</h3>
+            <p>スマホの辞書登録を使うと、短い読み方を入力するだけで、よく使う長い文章を変換候補として呼び出せます。</p>
+            <p>毎回同じ指示を入力する手間が減り、自分が気に入った頼み方をすぐ使えるようになります。スマホによって「ユーザ辞書」「単語リスト」など、機能の名前が異なることがあります。</p>
+          </section>
+          <section class="example dictionary-list">
+            <h3>登録する例</h3>
+            <dl>
+              <div><dt>かんけつ</dt><dd>質問にだけ簡潔に答えて</dd></div>
+              <div><dt>ちゅうがく</dt><dd>中学生でも分かるように説明して</dd></div>
+              <div><dt>ひきつぎ</dt><dd>新しいチャットへ引き継ぐためにまとめてください</dd></div>
+              <div><dt>かいぜん</dt><dd>もっとよくできるところを3つ、改善案と一緒に教えて</dd></div>
+            </dl>
+          </section>
+          <section class="tips">
+            <h3>コツ・注意点</h3>
+            <ul>
+              <li>まずは、よく使う指示を2つか3つだけ登録する</li>
+              <li>自分が覚えやすく、普段の文章では使いにくい読み方にする</li>
+              <li>使わなくなった指示は整理する</li>
+              <li>パスワード、住所、電話番号などを辞書登録しない</li>
+              <li>AIへ送る前に、変換された文章が目的に合っているか確認する</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">大切なこと</p>
+      <h2 id="closing-title">うまく伝わらなくても、<br>やり直せば大丈夫。</h2>
+      <p>AIとの会話は、一度で正解を出すテストではありません。話す、見せる、聞き直す。自分に合う方法から始めてみましょう。</p>
+      <a href="#page-title">ページの最初へ戻る</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>AI部</strong>　AI初心者向け資料</p>
+    <p>大切な判断は、AIだけに任せず、元の情報や専門家にも確認しましょう。</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
