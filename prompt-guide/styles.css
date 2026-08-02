@@ -281,44 +281,36 @@ h1 span {
 }
 
 .guide-section {
-  --section-fill: var(--coral-dark);
-  --section-soft: var(--coral-soft);
+  --section-fill: var(--blue);
   margin-bottom: 72px;
   scroll-margin-top: 24px;
 }
 
+#communicate,
 #clear-answer {
-  --section-fill: var(--purple);
-  --section-soft: var(--purple-soft);
+  --section-fill: var(--blue);
 }
 
-#voice-and-screen {
-  --section-fill: var(--blue);
-  --section-soft: var(--blue-soft);
+#voice-and-screen,
+#chat-and-project {
+  --section-fill: var(--mint);
 }
 
 #safe-use {
-  --section-fill: var(--orange);
-  --section-soft: var(--orange-soft);
-}
-
-#chat-and-project {
-  --section-fill: var(--mint);
-  --section-soft: var(--mint-soft);
+  --section-fill: var(--coral-dark);
 }
 
 #extra {
   --section-fill: var(--yellow);
-  --section-soft: var(--yellow-soft);
 }
 
 .section-heading {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px 12px;
-  margin-bottom: 12px;
-  padding: 0 4px;
+  gap: 9px 18px;
+  margin-bottom: 18px;
+  padding: 0 6px;
 }
 
 .section-heading::after {
@@ -327,8 +319,8 @@ h1 span {
 
 .section-heading p {
   margin: 0;
-  color: var(--section-fill);
-  font-size: 0.72rem;
+  color: var(--coral-dark);
+  font-size: 1.08rem;
   font-weight: 850;
   letter-spacing: 0.08em;
 }
@@ -336,12 +328,13 @@ h1 span {
 .section-heading h2 {
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
   margin: 0;
-  padding: 5px 12px;
+  padding: 8px 18px;
   border-radius: 999px;
-  color: var(--section-fill);
-  background: var(--section-soft);
-  font-size: 0.98rem;
+  color: #fff;
+  background: var(--coral);
+  font-size: 1.47rem;
   line-height: 1.4;
 }
 
@@ -794,7 +787,7 @@ blockquote.before {
   }
 
   .section-heading {
-    padding-inline: 2px;
+    padding-inline: 3px;
   }
 
   .guide-card > summary {
