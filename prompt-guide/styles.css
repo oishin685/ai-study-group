@@ -19,6 +19,7 @@
   --orange-soft: #fff1e8;
   --yellow: #8b6212;
   --yellow-soft: #fff6d8;
+  --category-gray: #62666c;
   --line: #ead7d0;
   --line-strong: #dcbfb5;
   --shadow-sm: 0 5px 16px rgba(67, 43, 49, 0.08);
@@ -333,7 +334,7 @@ h1 span {
   padding: 8px 18px;
   border-radius: 999px;
   color: #fff;
-  background: var(--coral);
+  background: var(--category-gray);
   font-size: 1.47rem;
   line-height: 1.4;
 }
