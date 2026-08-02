@@ -132,10 +132,10 @@ summary:focus-visible {
   place-items: center;
   min-height: 48px;
   padding-inline: 14px;
-  border: 2px solid var(--line);
+  border: 2px solid var(--blue);
   border-radius: 999px;
-  color: var(--body);
-  background: rgba(255, 255, 255, 0.72);
+  color: #fff;
+  background: var(--blue);
   font-size: 0.88rem;
   font-weight: 800;
   text-decoration: none;
@@ -143,8 +143,8 @@ summary:focus-visible {
 }
 
 .header-link:hover {
-  border-color: var(--coral);
-  background: #fff;
+  border-color: #20587d;
+  background: #20587d;
 }
 
 main {
@@ -231,51 +231,6 @@ h1 span {
   margin: 0;
   color: #365d57;
   font-weight: 700;
-}
-
-.category-nav {
-  margin-bottom: 24px;
-  padding: 24px 20px;
-  border: 2px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-sm);
-}
-
-.category-nav h2 {
-  margin-bottom: 16px;
-  font-size: 1.15rem;
-  text-align: center;
-}
-
-.category-nav__links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.category-nav a {
-  display: inline-grid;
-  place-items: center;
-  min-height: 48px;
-  padding: 9px 15px;
-  border: 2px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink);
-  background: #fff;
-  font-size: 0.92rem;
-  font-weight: 800;
-  line-height: 1.35;
-  text-align: center;
-  text-decoration: none;
-  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
-}
-
-.category-nav a:hover {
-  border-color: var(--coral);
-  color: var(--coral-dark);
-  background: var(--coral-soft);
 }
 
 .toolbar {
@@ -772,10 +727,6 @@ blockquote.before {
     width: min(100% - 64px, var(--content));
   }
 
-  .category-nav {
-    padding: 28px;
-  }
-
   .guide-card > summary {
     padding: 28px 30px;
   }
@@ -823,20 +774,6 @@ blockquote.before {
 
   .hero__lead br {
     display: none;
-  }
-
-  .category-nav {
-    padding: 22px 16px;
-  }
-
-  .category-nav__links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .category-nav a {
-    padding-inline: 8px;
-    font-size: 0.84rem;
   }
 
   .toolbar {
@@ -936,7 +873,6 @@ blockquote.before {
   }
 
   .site-header,
-  .category-nav,
   .toolbar,
   .summary-action,
   .copy-button,

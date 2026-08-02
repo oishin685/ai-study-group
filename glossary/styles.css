@@ -9,6 +9,8 @@
   --mint: #eaf8f5;
   --mint-ink: #c94c5b;
   --accent: #7a74d9;
+  --link-blue: #2a6f9e;
+  --link-blue-hover: #20587d;
   --line: #f5c8ce;
   --cream: #fff6dc;
   --shadow: 0 12px 30px rgba(70, 44, 54, 0.10);
@@ -93,10 +95,10 @@ a:focus-visible {
   place-items: center;
   min-height: 48px;
   padding: 8px 14px;
-  border: 2px solid var(--line);
+  border: 2px solid var(--link-blue);
   border-radius: 999px;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.72);
+  color: #fff;
+  background: var(--link-blue);
   font-size: 0.88rem;
   font-weight: 800;
   line-height: 1.35;
@@ -106,8 +108,8 @@ a:focus-visible {
 }
 
 .header-link:hover {
-  border-color: var(--main);
-  background: #fff;
+  border-color: var(--link-blue-hover);
+  background: var(--link-blue-hover);
 }
 
 .hero,
