@@ -326,67 +326,73 @@ h1 span {
 }
 
 .guide-section {
+  --section-fill: var(--coral-dark);
+  --section-soft: var(--coral-soft);
   margin-bottom: 72px;
   scroll-margin-top: 24px;
 }
 
+#clear-answer {
+  --section-fill: var(--purple);
+  --section-soft: var(--purple-soft);
+}
+
+#voice-and-screen {
+  --section-fill: var(--blue);
+  --section-soft: var(--blue-soft);
+}
+
+#safe-use {
+  --section-fill: var(--orange);
+  --section-soft: var(--orange-soft);
+}
+
+#chat-and-project {
+  --section-fill: var(--mint);
+  --section-soft: var(--mint-soft);
+}
+
+#extra {
+  --section-fill: var(--yellow);
+  --section-soft: var(--yellow-soft);
+}
+
 .section-heading {
-  position: relative;
-  margin-bottom: 20px;
-  padding: 24px 24px 22px;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: var(--coral-soft);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-bottom: 12px;
+  padding: 0 4px;
 }
 
 .section-heading::after {
-  content: "";
-  position: absolute;
-  top: -42px;
-  right: -34px;
-  width: 120px;
-  height: 120px;
-  border: 18px solid rgba(217, 87, 101, 0.1);
-  border-radius: 50%;
+  display: none;
 }
 
 .section-heading p {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 6px;
-  color: var(--coral-dark);
-  font-size: 0.84rem;
+  margin: 0;
+  color: var(--section-fill);
+  font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.08em;
 }
 
 .section-heading h2 {
-  position: relative;
-  z-index: 1;
+  display: inline-flex;
+  align-items: center;
   margin: 0;
-  font-size: clamp(1.65rem, 7vw, 2.35rem);
-  line-height: 1.35;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--section-fill);
+  background: var(--section-soft);
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
-
-.section-heading--purple { background: var(--purple-soft); }
-.section-heading--purple p { color: #5147a1; }
-.section-heading--purple::after { border-color: rgba(101, 91, 183, 0.1); }
-.section-heading--blue { background: var(--blue-soft); }
-.section-heading--blue p { color: var(--blue); }
-.section-heading--blue::after { border-color: rgba(42, 111, 158, 0.1); }
-.section-heading--orange { background: var(--orange-soft); }
-.section-heading--orange p { color: var(--orange); }
-.section-heading--orange::after { border-color: rgba(166, 77, 28, 0.1); }
-.section-heading--mint { background: var(--mint-soft); }
-.section-heading--mint p { color: var(--mint); }
-.section-heading--mint::after { border-color: rgba(52, 127, 116, 0.1); }
-.section-heading--yellow { background: var(--yellow-soft); }
-.section-heading--yellow p { color: var(--yellow); }
-.section-heading--yellow::after { border-color: rgba(139, 98, 18, 0.1); }
 
 .guide-card {
   margin-bottom: 16px;
-  border: 2px solid var(--line);
+  border: 2px solid var(--section-fill);
   border-radius: var(--radius-md);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
@@ -395,7 +401,7 @@ h1 span {
 }
 
 .guide-card[open] {
-  border-color: #e2b7ad;
+  border-color: var(--section-fill);
   box-shadow: var(--shadow-md);
 }
 
@@ -407,11 +413,11 @@ h1 span {
   align-items: center;
   min-height: 104px;
   padding: 22px 20px;
-  color: var(--ink);
-  background: var(--surface);
+  color: #fff;
+  background: var(--section-fill);
   list-style: none;
   cursor: pointer;
-  transition: background-color 180ms ease;
+  transition: filter 180ms ease;
 }
 
 .guide-card > summary::-webkit-details-marker {
@@ -419,12 +425,12 @@ h1 span {
 }
 
 .guide-card > summary:hover {
-  background: #fffaf8;
+  background: var(--section-fill);
+  filter: brightness(1.06);
 }
 
 .guide-card[open] > summary {
-  border-bottom: 2px solid var(--line);
-  background: #fffaf8;
+  background: var(--section-fill);
 }
 
 .summary-copy {
@@ -433,14 +439,14 @@ h1 span {
 }
 
 .tip-title {
-  color: var(--ink);
-  font-size: clamp(1.14rem, 4.6vw, 1.38rem);
+  color: #fff;
+  font-size: clamp(1.48rem, 5vw, 1.9rem);
   font-weight: 900;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .tip-short {
-  color: var(--body);
+  color: rgba(255, 255, 255, 0.94);
   font-size: 0.98rem;
   font-weight: 600;
   line-height: 1.7;
@@ -451,7 +457,7 @@ h1 span {
   justify-items: center;
   gap: 5px;
   width: 62px;
-  color: var(--coral-dark);
+  color: #fff;
   font-size: 0.7rem;
   font-weight: 800;
   line-height: 1.25;
@@ -462,7 +468,7 @@ h1 span {
   width: 34px;
   height: 34px;
   padding: 6px;
-  border: 2px solid #efc6c0;
+  border: 2px solid rgba(255, 255, 255, 0.72);
   border-radius: 50%;
   fill: none;
   stroke: currentColor;
@@ -473,7 +479,7 @@ h1 span {
 }
 
 .guide-card[open] .summary-action svg {
-  background: var(--coral-soft);
+  background: rgba(255, 255, 255, 0.14);
   transform: rotate(180deg);
 }
 
@@ -851,7 +857,7 @@ blockquote.before {
   }
 
   .section-heading {
-    padding: 22px 18px;
+    padding-inline: 2px;
   }
 
   .guide-card > summary {
