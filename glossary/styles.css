@@ -98,6 +98,66 @@ h1 span { color: var(--main); }
   box-shadow: var(--shadow);
 }
 
+.related-guide {
+  margin-bottom: 32px;
+  padding: 26px 22px;
+  border: 2px solid #bfe1d9;
+  border-radius: 28px;
+  background: var(--mint);
+  box-shadow: var(--shadow);
+}
+
+.related-guide__eyebrow {
+  margin-bottom: 6px;
+  color: var(--main-dark);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.related-guide h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.65rem, 7vw, 2.2rem);
+  line-height: 1.35;
+}
+
+.related-guide > p:not(.related-guide__eyebrow) {
+  margin-bottom: 20px;
+  color: #4e615d;
+  font-weight: 700;
+}
+
+.related-guide__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 9px 18px;
+  border: 2px solid var(--main);
+  border-radius: 999px;
+  color: #fff;
+  background: var(--main-dark);
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.related-guide__link:hover {
+  border-color: #a63b49;
+  background: #a63b49;
+}
+
+.related-guide__link svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .contents { padding: 28px 22px; }
 
 .contents h2,
@@ -257,7 +317,7 @@ h1 span { color: var(--main); }
 
 @media (min-width: 640px) {
   body { font-size: 19px; }
-  .contents, .term-card, .closing { padding: 32px; }
+  .contents, .term-card, .closing, .related-guide { padding: 32px; }
   .term-card__header { margin: -32px -32px 24px; padding: 36px 32px; }
   .contents ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
