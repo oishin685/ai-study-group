@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向AI初学者的基础知识：了解AI的特点、局限、安全用法以及日常使用方法。">
+  <meta property="og:title" content="AI基础知识｜AI部">
+  <meta property="og:description" content="从零开始了解AI的特点、局限和安全使用方法。">
+  <meta property="og:type" content="article">
+  <title>AI基础知识｜AI部</title>
+  <style>
+    :root {
+      --bg: #f8f4ec;
+      --paper: #fffdf8;
+      --ink: #263332;
+      --body: #5f6d6b;
+      --muted: #87928f;
+      --accent: #2d7d6f;
+      --accent-soft: #e0f3f0;
+      --line: #ded5c8;
+      --shadow: 0 22px 46px rgba(54, 68, 66, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    .deck {
+      display: grid;
+      gap: 28px;
+      padding: 24px 0 56px;
+    }
+
+    .material-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(248, 244, 236, 0.96);
+      backdrop-filter: blur(10px);
+    }
+
+    .material-nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--body);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .material-nav a[aria-current="page"] {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .slide {
+      display: block;
+      padding: 0 clamp(10px, 3vw, 22px);
+    }
+
+    .canvas {
+      position: relative;
+      width: min(720px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .canvas::before {
+      content: "";
+      grid-column: 1;
+      grid-row: 1 / -1;
+      background: var(--accent);
+    }
+
+    .copy {
+      grid-column: 2;
+      grid-row: 1;
+      z-index: 2;
+      min-width: 0;
+      display: grid;
+      align-content: center;
+      padding: clamp(34px, 7vw, 56px) clamp(22px, 6vw, 48px) clamp(28px, 5vw, 42px);
+    }
+
+    .meta {
+      margin-bottom: 34px;
+      color: var(--accent);
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 800;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 44px;
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .cover h1 {
+      font-size: 54px;
+      line-height: 1.12;
+    }
+
+    .subtitle {
+      margin-top: 24px;
+      color: var(--body);
+      font-size: 25px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .body {
+      max-width: 540px;
+      margin: 58px 0 0;
+      color: var(--body);
+      font-size: 21px;
+      line-height: 1.74;
+      font-weight: 500;
+    }
+
+    .body.compact {
+      margin-top: 44px;
+      font-size: 19px;
+      line-height: 1.68;
+    }
+
+    .insight {
+      width: min(540px, 100%);
+      margin-top: 42px;
+      padding: 22px 28px 22px 26px;
+      border-left: 8px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: rgba(255, 253, 248, 0.94);
+      box-shadow: 0 12px 28px rgba(62, 74, 72, 0.09);
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.58;
+      font-weight: 800;
+    }
+
+    .visual {
+      grid-column: 2;
+      grid-row: 2;
+      min-width: 0;
+      position: relative;
+      overflow: visible;
+      background: var(--accent-soft);
+    }
+
+    .visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .image-speech {
+      position: absolute;
+      z-index: 2;
+      color: var(--ink);
+      font-size: clamp(14px, 2.7vw, 21px);
+      line-height: 1.42;
+      font-weight: 800;
+      letter-spacing: 0;
+      pointer-events: none;
+    }
+
+    .memory-speech {
+      top: 24%;
+      left: 30%;
+      width: 40%;
+      height: 20%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .visual::after {
+      content: none;
+    }
+
+    .reverse .copy {
+      grid-column: 2;
+    }
+
+    .reverse .visual {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .reverse .visual::after {
+      content: none;
+    }
+
+    .footer {
+      position: static;
+      grid-column: 2;
+      grid-row: 3;
+      align-self: end;
+      z-index: 3;
+      padding: 18px clamp(22px, 6vw, 48px) 30px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .reverse .footer {
+      justify-self: start;
+    }
+
+    .number {
+      position: static;
+      grid-column: 2;
+      grid-row: 3;
+      justify-self: end;
+      align-self: end;
+      z-index: 3;
+      padding: 18px clamp(22px, 6vw, 48px) 30px;
+      color: rgba(38, 51, 50, 0.44);
+      font-size: 12px;
+    }
+
+    .summary {
+      grid-column: 2;
+    }
+
+    .summary-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 34px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--body);
+      font-size: 18px;
+      line-height: 1.48;
+      font-weight: 600;
+    }
+
+    .summary-list li {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .summary-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.78em;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    @media (max-width: 760px) {
+      .slide {
+        padding: 0 10px;
+      }
+
+      .canvas {
+        width: 100%;
+      }
+
+      .copy,
+      .reverse .copy,
+      .summary {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 34px 22px 28px;
+      }
+
+      .visual,
+      .reverse .visual {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .visual::after,
+      .reverse .visual::after {
+        content: none;
+      }
+
+      .meta {
+        margin-bottom: 18px;
+        font-size: 12px;
+      }
+
+      h1,
+      h2,
+      .cover h1 {
+        font-size: clamp(27px, 8vw, 38px);
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        margin-top: 16px;
+        font-size: 18px;
+      }
+
+      .body,
+      .body.compact {
+        margin-top: 26px;
+        font-size: clamp(15px, 4.25vw, 18px);
+        line-height: 1.62;
+      }
+
+      .insight {
+        margin-top: 26px;
+        padding: 16px 18px 16px 16px;
+        border-left-width: 6px;
+        font-size: clamp(15px, 4.2vw, 17px);
+        line-height: 1.5;
+      }
+
+      .summary-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 28px;
+        font-size: clamp(14px, 3.8vw, 17px);
+        line-height: 1.5;
+      }
+
+      .footer,
+      .reverse .footer {
+        padding: 16px 22px 24px;
+        font-size: 11px;
+      }
+
+      .number {
+        padding: 16px 22px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="material-nav" aria-label="AI部中文资料">
+    <a href="index.html" aria-current="page">AI基础知识</a>
+    <a href="effective-use.html">高效使用AI</a>
+  </nav>
+  <main class="deck">
+    <section class="slide cover">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">00｜封面</div>
+          <h1>AI究竟<br>是什么？</h1>
+          <p class="subtitle">开始使用之前<br>需要了解的基础知识</p>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-01-cover.webp" alt="一位女性正在思考人工智能的明亮插画">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">01 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">01｜认识AI</div>
+          <h2>AI会根据语言和图像的<br>规律生成回答</h2>
+          <p class="body compact">AI会利用从大量文章、图像等内容中学到的规律，组合出看起来符合问题的回答。它并不是像人类一样，凭借亲身经历或自己的意愿来回答。</p>
+          <div class="insight">AI不是“知道答案的人”，而是“根据已有材料生成答案的工具”。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-02-next-words-human-android-20260629.webp" alt="对比仿人机器人与数据处理型AI的插画">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">02 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">02｜识别错误</div>
+          <h2>即使回答看起来很有把握，<br>也可能是错的</h2>
+          <p class="body compact">AI可以生成听起来很合理的内容，但这些内容不一定符合事实。遇到姓名、日期、数字、近期有变化的信息，以及健康、法律、金钱等会影响重要判断的内容时，需要格外谨慎。</p>
+          <div class="insight">重要内容要通过官方信息、专业人士等AI以外的可靠依据进行核实。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-08-plausible-words.webp" alt="冷静核实AI回答的人物插画">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">03 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">03｜更好地提出请求</div>
+          <h2>说明目的和条件，<br>更容易得到想要的回答</h2>
+          <p class="body compact">加上“用来做什么”“给谁看”“有哪些条件”“需要多长”，回答就会更具体。例如可以说：“请帮我写一段发给朋友的微信感谢语，用亲切的语言写成三行。”</p>
+          <div class="insight">之后再补充“再短一点”“加一个例子”“不要使用难懂的词”也完全可以。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-09-confirm-again.webp" alt="一位女性看着手机调整对AI的提问方式">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">04 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">04｜用于日常生活</div>
+          <h2>AI可以帮你写作、整理<br>和思考</h2>
+          <p class="body compact">AI可用于起草微信消息或邮件、整理长文章、提供菜谱或旅行方案，以及解释难懂的词。有些服务还支持针对照片或文件进行提问。</p>
+          <div class="insight">与其要求AI一次交出成品，不如把它当作伙伴，一起完善草稿和方案。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-04-writing-ideas.webp" alt="一位女性正在用手机整理文字和创意">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">05 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">04｜用于日常生活</div>
+          <h2>把AI当作整理思路的<br>对话伙伴</h2>
+          <p class="body compact">思路还没有理清时，可以请AI向你提问，或列出不同的选择。试着说：“先不要下结论，请一次问我一个问题，帮助我理清思路。”</p>
+          <div class="insight">AI可以帮助整理和提供建议，但不能替你承担责任。重要决定要由自己思考；必要时请咨询可信赖的人或专业人士。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-10-thinking-partner.webp" alt="人与AI并肩思考的插画">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">06 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">05｜用出自己的风格</div>
+          <h2>告诉AI你的偏好<br>和目的</h2>
+          <p class="body compact">AI回答时可能参考的信息包括：当前对话的上下文、你主动填写的设置或个人资料，以及利用过去对话的记忆功能等。具体能使用哪些信息，会因服务、账号和设置而不同。</p>
+          <div class="insight">只提供完成任务所需的信息，交流会更顺畅。也要确认AI记住了什么，以及这些内容能否查看、修改或删除。</div>
+        </div>
+        <figure class="visual memory-visual">
+          <img src="assets/slide-07-memory-reset.webp" alt="说明AI有时不会记住过去对话的插画">
+          <span class="image-speech memory-speech">初次见面，<br>你是谁？</span>
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">07 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">06｜安全使用</div>
+          <h2>保护个人信息</h2>
+          <p class="body compact">不要输入住址、电话号码、工作单位或客户的正式名称、病史、银行账户或银行卡信息、密码等内容。家人、朋友等他人的个人信息，如果没有得到本人允许，也不要输入。</p>
+          <div class="insight">不确定时，请改用昵称、虚构示例或更笼统的说法。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-06-check-facts-no-hands-20260629.webp" alt="一位女性在发送前检查内容是否包含个人信息">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">08 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">07｜免费版与付费版</div>
+          <h2>先免费体验，<br>有需要时再考虑付费</h2>
+          <p class="body compact">免费版通常也能尝试写作、提问、咨询和创意构思。付费版一般会提高使用上限，或提供更多功能。功能和价格可能变化，付费前请以当时的官方页面为准。</p>
+          <div class="insight">经常达到使用上限、确实需要某项付费功能，或已经明确要长期使用时，可以再考虑付费版。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-12-free-version.webp" alt="一位女性正在手机上体验免费版AI">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">09 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide reverse">
+      <div class="canvas">
+        <div class="copy">
+          <div class="meta">08｜选择合适的设备</div>
+          <h2>根据任务选择<br>手机或电脑</h2>
+          <p class="body compact">手机适合随时提问、语音交流，以及拍照后询问。电脑更适合处理长文章和大量资料、对比多个页面，或进行细致编辑。</p>
+          <div class="insight">很多基础操作用手机或电脑都能完成。可以先从手边的手机开始，需要时再使用电脑。</div>
+        </div>
+        <figure class="visual">
+          <img src="assets/slide-14-smartphone.webp" alt="使用手机AI完成多种任务的插画">
+        </figure>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">10 / 11</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="canvas">
+        <div class="copy summary">
+          <div class="meta">09｜总结</div>
+          <h2>重点回顾</h2>
+          <ul class="summary-list">
+            <li>AI根据学到的规律生成回答</li>
+            <li>回答再自然，也可能出错</li>
+            <li>说明目的和条件，更容易得到想要的回答</li>
+            <li>重要信息要通过AI以外的依据核实</li>
+            <li>不要输入个人信息和秘密；必要时将内容模糊化</li>
+            <li>使用免费版和手机，也能从基础开始</li>
+          </ul>
+          <div class="insight">今天先试一件事吧：“帮我润色文字”“给我三个方案”或“把难懂的词讲得简单一些”。</div>
+        </div>
+        <div class="footer">AI部 第1讲｜中文版</div>
+        <div class="number">11 / 11</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

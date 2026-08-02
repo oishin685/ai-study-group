@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向AI初学者，用可以直接复制的例子，简单介绍如何高效、安全地使用AI。">
+  <meta property="og:title" content="如何高效使用AI｜AI部">
+  <meta property="og:description" content="17个可以马上尝试的AI使用方法和安全注意事项。">
+  <meta property="og:type" content="article">
+  <meta name="theme-color" content="#fffaf4">
+  <title>如何高效使用AI｜AI部</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d95765'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white'%3EAI%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="effective-use.css">
+  <style>body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif}</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回AI部中文资料首页">
+      <span class="brand__mark" aria-hidden="true">AI</span>
+      <span class="brand__name">AI部</span>
+    </a>
+    <a class="header-link" href="index.html">AI基础知识</a>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">面向AI初学者</p>
+      <h1 id="page-title">如何<br><span>高效使用<br>AI</span></h1>
+      <p class="hero__lead">不会写专业的指令也没关系。<br>点击感兴趣的项目，马上试一试。</p>
+      <div class="hero__note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-4.3 12.5c.8.6 1.3 1.3 1.5 2.1h5.6c.2-.8.7-1.5 1.5-2.1A7 7 0 0 0 12 3Zm-2.2 18h4.4"/></svg>
+        <p>不需要一开始就表达得完美。可以一边和AI对话，一边逐步把想法整理清楚。</p>
+      </div>
+    </section>
+
+    <div class="toolbar" aria-label="切换详细说明的显示状态">
+      <p>当前展开 <span id="open-count">0</span> 项详细说明</p>
+      <div class="toolbar__buttons">
+        <button type="button" id="open-all">全部展开</button>
+        <button type="button" id="close-all">全部收起</button>
+      </div>
+    </div>
+
+    <section class="guide-section" id="communicate" aria-labelledby="communicate-title">
+      <header class="section-heading">
+        <p>先从这里开始</p>
+        <h2 id="communicate-title">怎样向AI表达</h2>
+      </header>
+
+      <details class="guide-card" id="together">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">请和我一起想</span>
+            <span class="tip-short">不知道该怎么咨询时，不必先写出完整的指令。可以直接说出还没整理好的想法，再告诉AI：“请和我一起想。”</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>不必认为“想得到好答案，就必须从一开始写出漂亮的问题和细致的指令”。</p>
+            <p>像策划方案或烦恼咨询这类还没有固定答案的事情，在想法尚未整理好时就可以和AI讨论。把想到的、犹豫的和在意的内容直接作为材料告诉AI。</p>
+            <p>这里的关键，是把AI看作“一起寻找问题和可能性的伙伴”，而不是“告诉你唯一正确答案的人”。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>我想策划一个新活动。<br>希望全家都能参加，但准备工作不能太复杂。<br>我的想法还没有整理好，请和我一起想。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>按想到的顺序说就可以</li>
+              <li>继续追问：“还有别的角度吗？”“有没有我忽略的地方？”</li>
+              <li>如果任务的目标或成品形式已经确定，也要告诉AI具体要求</li>
+              <li>不要把判断完全交给AI，最后由自己思考和决定</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="purpose-first">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">先说明“为了什么”</span>
+            <span class="tip-short">不要只说“请制作○○”，可以先说：“为了让家人容易理解，请制作○○。”先告诉AI这件事要用来做什么。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>AI会根据你提供的信息生成回答。如果只告诉它要制作什么，它可能不知道最终目标；即使内容没有明显错误，也可能和你的期望不一致。</p>
+            <p>先说明目的，AI就更容易选择符合目的的内容、用词和顺序。必要时，再补充“给谁看”和“希望对方看完后怎么做”。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>目的是让社区里的老年人也能放心参加。<br>请为此制作一份活动通知。<br>不要使用难懂的词。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>先想“用来做什么”，再想“要制作什么”</li>
+              <li>如果自己也不清楚目的，可以请AI通过提问帮你整理</li>
+              <li>不用一开始就列出所有与目的无关的细小条件</li>
+              <li>目的由人决定，AI帮助人一起思考实现目的的方法</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="four-points">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">指令中可以包含的四项内容</span>
+            <span class="tip-short">向AI提出请求时，可以考虑四点：“为了什么”“有哪些背景或示例”“希望以什么形式回答”“需要遵守哪些条件”。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>请求稍微复杂时，按照下面四点整理，更容易把希望一次说明清楚。</p>
+            <dl class="four-points">
+              <div><dt>为了什么</dt><dd>这次任务的目的</dd></div>
+              <div><dt>有哪些背景或示例</dt><dd>当前情况、面向的对象、使用场景、参考样例</dd></div>
+              <div><dt>希望以什么形式回答</dt><dd>文章、表格、项目符号、方案数量、长度</dd></div>
+              <div><dt>需要遵守哪些条件</dt><dd>禁用词、预算、期限、字数等</dd></div>
+            </dl>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>为了什么：邀请一位很久没见的朋友吃午饭<br>背景或示例：关系轻松的朋友，语气不要太正式<br>回答形式：提供3种微信消息写法<br>需要遵守的条件：每种不超过3行，不使用表情符号</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不用每次都完整写齐四项</li>
+              <li>先说明已经知道的内容，缺少的信息可以请AI提问</li>
+              <li>回答形式要具体，例如表格、项目符号、3个方案或3行以内</li>
+              <li>背景和示例中不要加入个人信息或秘密</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="ask-me">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">请AI一边提问，一边推进</span>
+            <span class="tip-short">不知道该从哪里说起时，可以告诉AI：“请一边向我提问，一边推进。”让AI来担任提问者。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>如果你“不知道该告诉AI什么”或“不知道问题该怎么写”，不必独自想出完美的问题，可以让AI主动向你提问。</p>
+            <p>先简单说出想咨询的事情，再请AI一次问一个为了给出好答案而需要了解的问题。回答这些问题的过程中，你自己的希望和条件也会逐渐清晰。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>我想策划一次社区活动。<br>为了提出好方案，请把需要了解的内容归纳成3个问题。<br>请一次只问我一个问题。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不要让AI一次提出很多问题，请它一次问一个</li>
+              <li>请AI只保留最重要的问题</li>
+              <li>不想回答时，可以说“跳过这个问题”</li>
+              <li>不要回答涉及个人信息或秘密的问题</li>
+              <li>最后请AI整理你已经回答的内容</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="three-options">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">不用从零开始，先让AI给出3个方案</span>
+            <span class="tip-short">与其从空白开始只想一个方案，不如先请AI提出3个方案。边比较边思考，更容易找到适合自己的选择。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>这并不表示“自己不用思考”。它是指不要先独自决定唯一方案，而是先让AI提出多个选择，再由人进行比较和思考。</p>
+            <p>同时询问各方案的差异、理由、优点和注意事项，可以把自己没想到的可能性也纳入考虑。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>请针对○○提出3个推荐方案。<br>按推荐顺序排列，并简要说明每个方案的理由和注意事项。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不要从一开始就只认定一种方法</li>
+              <li>如果AI需要更多信息才能提出好方案，请它先提问</li>
+              <li>可以组合各方案的优点，也可以修改不适合的部分</li>
+              <li>AI负责扩展选择，人负责比较和判断</li>
+              <li>不要把AI的推荐直接当作正确答案，最后由自己决定</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="show-example">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">与其只用文字说明，不如给AI看样例</span>
+            <span class="tip-short">与其反复详细说明，不如给AI看一个接近你期望的样例，并说“请参考这个”。这样更容易传达形式和整体感觉。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>即使说“简短”“明快”“简单”“容易看懂”，每个人想象的效果也可能不同。与其继续用文字详细解释，不如给AI看一个接近期望的样例，有时更容易说明成品应该是什么样子。</p>
+            <p>可以作为样例的内容不只有文字。</p>
+            <ul>
+              <li>接近期望的文章</li><li>传单或资料</li><li>喜欢的图像或设计</li><li>容易阅读的表格</li><li>容易使用的界面</li><li>接近成品印象的照片或插画</li>
+            </ul>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>请参考这个样例。<br>参考它的配色、信息排列和留白方式，把内容替换成我接下来提供的活动信息。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>选择一个最接近自己期望的样例</li>
+              <li>明确告诉AI希望参考样例的哪一部分</li>
+              <li>不要照搬内容，只参考形式和氛围</li>
+              <li>不要使用带有个人信息的图像，也不要使用无权使用的内容</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="rewrite-question">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">感觉不对时，重写最初的问题</span>
+            <span class="tip-short">回答不符合预期时，与其不断追加纠正，不如把缺少的信息补进最初的问题后重新提问。这样可以减少你和AI之间的理解偏差。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>如果AI的回答偏差很大，而你不断追加“不是这样”“我的意思不是这个”等纠正，最初的问题和后来的修正会一起留在对话中。这样反而可能让AI更难判断哪些条件最重要。</p>
+            <p>遇到这种情况，可以回到最初的问题，补上缺少的目的、背景、示例、回答形式和条件，然后重写整个问题。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>重写示例</h3><button class="copy-button" type="button">复制重写后的问题</button></div>
+            <p class="example-label">最初的问题</p>
+            <blockquote class="before">请推荐一个家庭旅行方案。</blockquote>
+            <p class="example-label">重写后的问题</p>
+            <blockquote>我正在计划一次和70多岁的母亲一起参加的家庭一日游。<br>我们不开车。请用表格提供3个移动距离较短的方案。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>先找出一个“哪里不对”或“缺少了什么”</li>
+              <li>如果可以编辑原问题，就补充缺少的信息并让AI重新回答</li>
+              <li>如果不能编辑，就复制并重写问题，再到新对话中提问</li>
+              <li>如果只需要小幅修改，也可以继续对话并追加指令</li>
+              <li>大幅修改原问题后，要确认后续回答是否随之改变</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="clear-answer" aria-labelledby="clear-answer-title">
+      <header class="section-heading section-heading--purple">
+        <p>让回答更容易阅读</p>
+        <h2 id="clear-answer-title">让AI回答得更清楚</h2>
+      </header>
+
+      <details class="guide-card" id="concise">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">请简洁回答</span>
+            <span class="tip-short">如果长回答读起来很累，就告诉AI：“请只针对我的问题简洁回答。”</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>AI有时不仅回答问题，还会加入相关说明和注意事项，结果变得很长。如果只想确认一件事，可以在问题最后加上“请只针对我的问题简洁回答”。</p>
+            <p>只想看结论时可以说“只告诉我结论”；想限制长度时可以说“不超过3行”。之后想了解更多，再追问需要的部分就可以。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>这份通知是否要求提前报名？<br>请只针对我的问题简洁回答。</blockquote>
+            <p class="example-label">如果接着想了解理由</p>
+            <blockquote class="secondary-example">请简短说明理由。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>现在只想知道一件事时使用</li>
+              <li>可以调整为“只说结论”“不超过3行”或“用项目符号回答”</li>
+              <li>医疗、法律、金钱等重要事项，不要只凭简短回答作出判断</li>
+              <li>继续详细确认必要的注意事项和依据</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="junior-high">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">请用初中生也能理解的方式说明</span>
+            <span class="tip-short">如果AI的说明太难，可以说：“请用初中生也能理解的方式说明。”这样专业术语会减少，更容易先掌握整体内容。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>这不是要求AI把内容写成儿童读物，而是减少难懂的词，帮助你先掌握整体意思。</p>
+            <p>不用从一开始就试图理解全部细节。先了解大意，再对在意的部分进行详细追问。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>请用初中生也能理解的方式说明。<br>先告诉我整体内容，再详细说明重要部分。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>如果说明过于简单，可以调整为“面向高中生”或“面向成年初学者”</li>
+              <li>也可以只选出不懂的词，问“请解释这个词”</li>
+              <li>简单说明可能会省略细微差别</li>
+              <li>用于重要判断时，还要确认详细说明和依据</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="voice-and-screen" aria-labelledby="voice-and-screen-title">
+      <header class="section-heading section-heading--blue">
+        <p>更快地传达更多信息</p>
+        <h2 id="voice-and-screen-title">使用语音和截图</h2>
+      </header>
+
+      <details class="guide-card" id="voice-input">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">使用语音输入</span>
+            <span class="tip-short">不用先把想法整理成漂亮的文章，像和人说话一样直接告诉AI。语音可以传达更多想法和印象。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>用文字输入时，把脑中的想法和印象整理成通顺文章需要时间。在这个过程中，想说的内容可能被漏掉，信息量也可能减少。</p>
+            <p>使用语音输入，可以像对人说话一样直接说出想到的内容。即使中途改口、停顿，或语音转文字略显不自然，AI通常也能根据前后内容理解并整理意思。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>接下来我会直接说出想到的内容。<br>等我说完后，请整理我想表达的意思。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不用先在脑中完成整篇文章再开口</li>
+              <li>中途改口也没关系，继续说下去即可</li>
+              <li>最后请AI“整理要点”或“确认我的意图”</li>
+              <li>检查姓名、数字、日期和地点的语音转文字结果</li>
+              <li>不要说出不希望周围人听到的内容或个人信息</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="screenshot">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">把截图发给AI</span>
+            <span class="tip-short">与其用文字或语音描述画面，不如直接把截图发给AI。只要问“这是什么？”，AI就能查看画面并回答。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>如果只用语言描述画面，就需要逐一说明画面上的文字、按钮名称、排列方式和错误位置。</p>
+            <p>使用截图，可以把文字、按钮、布局、颜色和错误信息一次展示给AI。不知道应该怎样描述问题时也很有用。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>使用示例</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>这个画面是用来做什么的？<br>请用初学者也能理解的方式，告诉我下一步应该点击哪里。</blockquote>
+            <p class="example-label">出现错误信息时</p>
+            <blockquote class="secondary-example">这个错误是什么意思？<br>请先只告诉我可以安全检查的事项。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不懂的部分可以做标记，或说明“右上角的位置”</li>
+              <li>可以分别发送整个画面和需要查看部分的放大图</li>
+              <li>确认截图中没有姓名、住址、邮箱、照片、通知或会员编号等信息</li>
+              <li>不要发送含有密码、验证码或支付信息的截图</li>
+              <li>确认AI对画面的说明与实际应用和设备一致</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="safe-use" aria-labelledby="safe-use-title">
+      <header class="section-heading section-heading--orange">
+        <p>重要提醒</p>
+        <h2 id="safe-use-title">安全使用AI</h2>
+      </header>
+
+      <details class="guide-card" id="protect-private-info">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">不要告诉AI个人信息等内容</span>
+            <span class="tip-short">不要把姓名、住址、电话号码、密码等不希望泄露的信息原样输入AI。需要举例时，可替换成“A女士”“○○市”等。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>个人信息和秘密不仅可能出现在文字中，也可能包含在语音、照片、截图和文件里。咨询AI之前，先确认这些信息是否真的有必要提供。</p>
+            <p>不只是自己的信息，家人、朋友、单位和客户等他人的信息，未经本人同意也不要输入。即使更改了服务设置，也不表示可以输入需要保密的信息。</p>
+          </section>
+          <section class="warning-list">
+            <h3>不要输入的内容</h3>
+            <ul>
+              <li>真实姓名、住址、电话号码和个人邮箱</li>
+              <li>密码、支付密码和验证码</li>
+              <li>银行账户、银行卡和身份证件信息</li>
+              <li>病史、咨询内容等不希望别人知道的信息</li>
+              <li>工作单位、客户或合作方的秘密信息</li>
+              <li>未经本人允许的他人信息</li>
+            </ul>
+          </section>
+          <section class="example replace-list">
+            <h3>替换示例</h3>
+            <dl>
+              <div><dt>李小雨</dt><dd>A女士</dd></div>
+              <div><dt>北京市○○区○○路</dt><dd>○○市</dd></div>
+              <div><dt>○○有限公司</dt><dd>合作方</dd></div>
+              <div><dt>实际销售额</dt><dd>大致金额或虚构数字</dd></div>
+            </dl>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>在不影响得到回答的范围内，把信息模糊化</li>
+              <li>检查截图或文件中不明显的位置和小字</li>
+              <li>不确定时，改用化名、虚构示例或笼统表达</li>
+              <li>密码和验证码即使替换过，也不要作为咨询材料</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="verify-answer">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">不要完全相信AI的回答</span>
+            <span class="tip-short">AI也会很有把握地说出错误内容。重要信息要先问“这真的正确吗？”，并通过其他依据核实后再使用。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>AI能写出自然、流畅、容易阅读的文章。但即使文章看起来很有把握，内容也不一定正确。</p>
+            <p>不仅错误内容可能看起来像成品，依据不足或还有改进空间的内容也可能如此。不要直接接受第一次回答，要确认它的依据和薄弱之处。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>用于核实的指令</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>这真的正确吗？<br>依据是什么？<br>请指出3个还可以改进的地方，并给出相应的改进方案。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>只是再次询问AI，并不能证明答案正确</li>
+              <li>姓名、日期、数字、价格、制度和近期变化的信息要另行核实</li>
+              <li>重要内容要回到官方网站、原文或实物等原始信息进行确认</li>
+              <li>医疗、法律、金钱和安全相关判断不能只交给AI</li>
+              <li>最后决定是否采用的人是你自己</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="chat-and-project" aria-labelledby="chat-and-project-title">
+      <header class="section-heading section-heading--mint">
+        <p>避免对话混乱</p>
+        <h2 id="chat-and-project-title">怎样使用对话和项目</h2>
+      </header>
+
+      <details class="guide-card" id="new-chat">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">对话混乱时，换一个新对话重新开始</span>
+            <span class="tip-short">对话太长、回答开始对不上时，可以请AI“写一份用于新对话的交接说明”。把它粘贴到新对话，就能接着进行。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>在同一个对话中交流太久，旧条件、中途改变的想法和已经不需要的内容可能混在一起，导致AI的回答越来越对不上。</p>
+            <p>这时可以请AI整理当前目的和已经确定的事项，再把这份交接说明粘贴到新对话中。无需从头重新解释所有内容。</p>
+          </section>
+          <section class="example">
+            <div class="subheading-row"><h3>让AI撰写交接说明的指令</h3><button class="copy-button" type="button">复制示例</button></div>
+            <blockquote>请整理到目前为止的内容，作为新对话的交接说明。<br>请包括目标、已经确定的事项、尚未确定的事项和下一步要做的事情。</blockquote>
+            <p class="example-label">在新对话中</p>
+            <blockquote class="secondary-example">请接着这份交接说明继续进行。</blockquote>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>回答突然开始对不上时使用</li>
+              <li>粘贴交接说明前，确认内容与自己的理解一致</li>
+              <li>从交接说明中删除不必要的个人信息和秘密</li>
+              <li>所需图像或文件可能需要在新对话中重新上传</li>
+              <li>话题本身发生变化时，也应换一个新对话</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="one-project">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">每个主题建立一个“项目”</span>
+            <span class="tip-short">相同主题的咨询可以整理到该主题专用的项目中。对话和资料留在同一处，能减少每次从头说明的麻烦。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>项目就像一个收纳箱，用来整理同一主题的对话和资料。对话则是这个箱子里每一次单独的交流。</p>
+            <p>把相同主题的咨询整理到一个项目中，更容易找到相关对话和资料，也能减少每次重复说明背景的麻烦。</p>
+          </section>
+          <section class="example">
+            <h3>项目示例</h3>
+            <ul class="tag-list"><li>旅行计划</li><li>每日菜谱</li><li>AI部的准备工作</li><li>兴趣作品创作</li><li>持续进行的工作</li></ul>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不要在一个项目中混入太多无关主题</li>
+              <li>话题发生变化时，可在同一项目内新建一个对话</li>
+              <li>没有项目功能的AI，可通过对话名称或文件夹区分主题</li>
+              <li>可用功能和资料处理方式会因AI服务和套餐而不同</li>
+              <li>不要把个人信息或秘密资料存入AI，代替正式保存位置</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="guide-section" id="extra" aria-labelledby="extra-title">
+      <header class="section-heading section-heading--yellow">
+        <p>让使用更方便</p>
+        <h2 id="extra-title">补充技巧</h2>
+      </header>
+
+      <details class="guide-card" id="easy-access">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">把AI应用放在手机上容易打开的位置</span>
+            <span class="tip-short">需要AI时能立刻打开很重要。把应用放在容易点击的位置，也可以使用小组件或控制中心，让它随时可用。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>遇到不懂的事情或刚想到一个点子时马上使用AI，更容易把它融入日常生活。如果每次都要花时间寻找应用，可能想着“等会儿再问”，最后却忘了。</p>
+            <p>在自己的手机上选定一种最方便的打开方式。</p>
+          </section>
+          <section class="example">
+            <h3>方便打开的方法</h3>
+            <ul>
+              <li>iPhone：放在主屏幕上容易点击的位置</li>
+              <li>iPhone：使用应用支持的小组件或控制中心</li>
+              <li>Android：放在主屏幕上容易点击的位置</li>
+              <li>Android：使用应用支持的小组件或快捷设置</li>
+              <li>部分Android设备还可通过长按电源键或主屏幕键，或使用语音打开AI</li>
+            </ul>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>不用设置所有方法，只选一种最适合自己的</li>
+              <li>如果支持直接打开语音输入或相机，可以试一试</li>
+              <li>可用方法和功能名称会因手机、操作系统和AI应用而不同</li>
+              <li>更改设备设置或新增权限前，先确认内容，再由自己操作</li>
+              <li>从锁屏打开时，要注意不希望别人看到的历史记录和通知</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+
+      <details class="guide-card" id="dictionary">
+        <summary>
+          <span class="summary-copy">
+            <span class="tip-title">使用手机的自定义短语功能</span>
+            <span class="tip-short">把常用的长指令登记为手机自定义短语。例如只输入“简答”，就能调出“请只针对我的问题简洁回答”。</span>
+          </span>
+          <span class="summary-action" aria-hidden="true"><span>查看详情</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></span>
+        </summary>
+        <div class="guide-body">
+          <section>
+            <h3>详细说明</h3>
+            <p>使用手机的自定义短语功能，只需输入很短的缩写，就能把常用长句作为候选内容调出来。</p>
+            <p>这样可以减少每次重复输入相同指令的麻烦，随时使用自己喜欢的提问方式。不同手机可能把这项功能称为“自定义短语”“个人词典”或“文本替换”。</p>
+          </section>
+          <section class="example dictionary-list">
+            <h3>登记示例</h3>
+            <dl>
+              <div><dt>简答</dt><dd>请只针对我的问题简洁回答</dd></div>
+              <div><dt>初中</dt><dd>请用初中生也能理解的方式说明</dd></div>
+              <div><dt>交接</dt><dd>请整理内容，作为新对话的交接说明</dd></div>
+              <div><dt>改进</dt><dd>请指出3个还可以改进的地方，并给出相应方案</dd></div>
+            </dl>
+          </section>
+          <section class="tips">
+            <h3>技巧与注意事项</h3>
+            <ul>
+              <li>先只登记2到3条最常用的指令</li>
+              <li>使用自己容易记住、但平时不容易误输入的缩写</li>
+              <li>整理已经不用的指令</li>
+              <li>不要登记密码、住址或电话号码</li>
+              <li>发送给AI前，确认调出的文字符合当前目的</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">最重要的一点</p>
+      <h2 id="closing-title">即使没有表达清楚，<br>重新来一次就好。</h2>
+      <p>与AI对话不是要求一次答对的考试。说给它听、展示给它看、再问一次。从适合自己的方法开始吧。</p>
+      <a href="#page-title">返回页面顶部</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>AI部</strong>　面向AI初学者的资料</p>
+    <p>重要判断不要只交给AI，也要核对原始信息或咨询专业人士。</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script>
+    (() => {
+      const cards = Array.from(document.querySelectorAll('.guide-card'));
+      const openCount = document.querySelector('#open-count');
+      const openAllButton = document.querySelector('#open-all');
+      const closeAllButton = document.querySelector('#close-all');
+      const toast = document.querySelector('#toast');
+      let toastTimer;
+      let bulkChanging = false;
+
+      const updateCount = () => {
+        openCount.textContent = String(cards.filter((card) => card.open).length);
+      };
+
+      const showToast = (message) => {
+        window.clearTimeout(toastTimer);
+        toast.textContent = message;
+        toast.classList.add('is-visible');
+        toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
+      };
+
+      const copyText = async (value) => {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(value);
+          return;
+        }
+        const textarea = document.createElement('textarea');
+        textarea.value = value;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const copied = document.execCommand('copy');
+        textarea.remove();
+        if (!copied) throw new Error('copy failed');
+      };
+
+      const openCardFromHash = (shouldScroll = true) => {
+        const hash = decodeURIComponent(window.location.hash.slice(1));
+        if (!hash) return;
+        const target = document.getElementById(hash);
+        if (!(target instanceof HTMLDetailsElement)) return;
+        target.open = true;
+        updateCount();
+        if (shouldScroll) {
+          window.requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        }
+      };
+
+      cards.forEach((card) => {
+        card.addEventListener('toggle', () => {
+          updateCount();
+          if (card.open && !bulkChanging && window.location.hash !== `#${card.id}`) {
+            window.history.replaceState(null, '', `#${card.id}`);
+          }
+        });
+      });
+
+      document.querySelectorAll('.copy-button').forEach((button) => {
+        button.addEventListener('click', async () => {
+          const quote = button.closest('.example')?.querySelector('blockquote:not(.before)');
+          if (!quote) return;
+          try {
+            await copyText(quote.innerText.trim());
+            showToast('示例已复制');
+          } catch {
+            showToast('无法复制，请手动选择文字后复制');
+          }
+        });
+      });
+
+      openAllButton.addEventListener('click', () => {
+        bulkChanging = true;
+        cards.forEach((card) => { card.open = true; });
+        bulkChanging = false;
+        updateCount();
+        showToast('已展开全部详细说明');
+      });
+
+      closeAllButton.addEventListener('click', () => {
+        bulkChanging = true;
+        cards.forEach((card) => { card.open = false; });
+        bulkChanging = false;
+        updateCount();
+        const currentTarget = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        if (currentTarget instanceof HTMLDetailsElement) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+        showToast('已收起全部详细说明');
+      });
+
+      window.addEventListener('hashchange', () => openCardFromHash(true));
+      updateCount();
+      openCardFromHash(false);
+    })();
+  </script>
+</body>
+</html>
