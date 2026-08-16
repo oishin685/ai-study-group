@@ -1,0 +1,223 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d95765'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3EAI%3C/text%3E%3C/svg%3E"><title>AI画像生成 はじめての画像生成実践ガイド｜AI部</title>
+<style>
+:root{--bg:#fffaf4;--paper:#fff;--ink:#302a2c;--body:#5b5256;--coral:#d95765;--mint:#347f74;--purple:#655bb7;--line:#ead7d0}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--body);font:17px/1.75 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;overflow-wrap:anywhere}button,summary{cursor:pointer;touch-action:manipulation}button:focus-visible,summary:focus-visible{outline:4px solid var(--purple);outline-offset:3px}.head,.page,footer{width:min(calc(100% - 24px),720px);margin-inline:auto}.head{display:flex;align-items:center;justify-content:space-between;min-height:64px;border-bottom:1px solid var(--line);font-weight:900}.brand{display:flex;align-items:center;gap:9px}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:var(--coral);color:white}.page{margin-top:18px;padding:52px 18px;background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:0 12px 34px #432b3115}.cover{text-align:center;background:linear-gradient(150deg,#fff,#fff2ed)}.no{display:inline-block;margin:0 0 16px;padding:5px 13px;border-radius:999px;background:#e8f6f2;color:var(--mint);font-size:.78rem;font-weight:900}.cover .no{background:#fff0f2;color:#a83343}h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--ink)}h1{font-size:clamp(2.5rem,12vw,4.7rem);line-height:1.1}h1 span{color:var(--coral)}h2{font-size:clamp(2rem,8.3vw,3.3rem);line-height:1.18}.lead{color:var(--ink);font-size:1.08rem;font-weight:700}.hero,.pic img{display:block;width:100%;height:auto;border-radius:18px}.hero{margin-top:26px}.pic{width:100%;padding:0;border:0;border-radius:18px;background:none;box-shadow:0 7px 20px #31222718}figure{margin:0}figcaption{padding:9px 3px;color:#786e72;font-size:.9rem}figcaption b{display:block;color:var(--ink);font-size:1.05rem}.example{margin-top:30px;padding-top:28px;border-top:1px solid var(--line)}.point{margin-top:24px;padding:17px;border-left:5px solid var(--coral);border-radius:14px;background:#fff2f0;color:var(--ink);font-weight:800}.grid{display:grid;gap:14px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:22px}.card{padding:16px 13px;border:1px solid var(--line);border-radius:17px}.card b{display:block;color:#a83343}.steps{counter-reset:n;display:grid;gap:12px}.step{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:15px;border-radius:17px;background:#e8f6f2}.step:before{counter-increment:n;content:counter(n);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--mint);color:white;font-weight:900}.step p{margin:0}.compare{display:grid;gap:15px}.compare figure{padding:11px;border:1px solid var(--line);border-radius:18px}.prompt{margin-top:13px;border:1px solid #dbcfd3;border-radius:17px;overflow:hidden}.prompt summary{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:13px 15px;color:var(--purple);font-weight:900;list-style:none}.prompt summary::-webkit-details-marker{display:none}.prompt summary:after{content:"プロンプトを見る ▼";font-size:.84rem;white-space:nowrap}.prompt[open] summary:after{content:"プロンプトを閉じる ▲"}.body{padding:0 15px 15px}.body pre{margin:0;padding:14px;border-radius:13px;background:#f7f4f5;color:var(--ink);font:inherit;font-size:.92rem;line-height:1.65;white-space:pre-wrap}.actions{display:flex;gap:9px;margin-top:11px}.copy,.close{min-height:46px;padding:8px 15px;border:2px solid var(--purple);border-radius:999px;background:var(--purple);color:white;font:inherit;font-size:.9rem;font-weight:900}.close{margin-left:auto;background:white;color:var(--purple)}.status{min-height:1.5em;margin:5px 0 0;color:var(--mint);font-size:.85rem}.note{padding:9px 11px;border-radius:11px;background:#fff7dc;color:#715510;font-size:.8rem}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery img{aspect-ratio:3/7;object-fit:cover}.gallery figcaption{text-align:center;color:var(--ink);font-weight:800}dialog{width:min(calc(100% - 20px),980px);padding:0;border:0;border-radius:18px;background:#111}dialog::backdrop{background:#000b}dialog img{display:block;max-width:100%;max-height:84vh;margin:auto}.x{position:absolute;right:8px;top:8px;width:48px;height:48px;border:0;border-radius:50%;font-size:1.4rem}footer{padding:44px 12px 70px;text-align:center}@media(min-width:680px){.page{padding:66px 54px}.compare{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:repeat(3,1fr)}}
+.gallery figcaption:after{display:block;margin-top:5px;color:#786e72;font-size:.82rem;font-weight:500;line-height:1.55}.gallery figure:nth-child(1) figcaption:after{content:"遠景・中景・近景を重ねると、旅の途中のような広がりを作れます。"}.gallery figure:nth-child(2) figcaption:after{content:"色数や層数を決めると、切り紙のような独自の画風になります。"}.gallery figure:nth-child(3) figcaption:after{content:"同じ村でも、素材を変えるだけで手作りの立体作品のように見せられます。"}.gallery figure:nth-child(4) figcaption:after{content:"主役、光、背景を絞ると、商品が伝わる一枚になります。"}.gallery figure:nth-child(5) figcaption:after{content:"使う場面を先に伝えると、見出しを置く場所まで空けられます。"}.gallery figure:nth-child(6) figcaption:after{content:"人物、天気、光を組み合わせると、前後を想像できる場面になります。"}
+.view-icon{display:block;width:58px;height:58px;margin:0 0 10px;border-radius:16px;background-image:url('assets/guide-icons/nine-views-v1.png');background-size:300% 300%;box-shadow:0 4px 12px #31222712}.cards .card:nth-child(1) .view-icon{background-position:0 0}.cards .card:nth-child(2) .view-icon{background-position:50% 0}.cards .card:nth-child(3) .view-icon{background-position:100% 0}.cards .card:nth-child(4) .view-icon{background-position:0 50%}.cards .card:nth-child(5) .view-icon{background-position:50% 50%}.cards .card:nth-child(6) .view-icon{background-position:100% 50%}.cards .card:nth-child(7) .view-icon{background-position:0 100%}.cards .card:nth-child(8) .view-icon{background-position:50% 100%}.cards .card:nth-child(9) .view-icon{background-position:100% 100%}.nine-views-visual{display:none}.compare img{max-height:330px;object-fit:contain;background:#f7f4f5}.reference-page .grid img{max-height:380px;object-fit:contain;background:#f7f4f5}@media(min-width:680px){.compare img{max-height:400px}.reference-page .grid img{max-height:430px}}
+</style><style>.compare figure{display:flex;flex-direction:column;justify-content:center}.compare figure .pic{display:flex;align-items:center;flex:1}.compare figure .pic img{margin-block:auto}.use-plan{display:grid;gap:12px;margin-top:22px}.use-plan .card{border-color:#cfe4df}.use-plan .card:first-child{background:#fff2f0}.use-plan .card:last-child{background:#e8f6f2}</style></head><body><header class="head"><span class="brand"><span class="mark">AI</span>AI部</span><small>スマホで読む実践ガイド</small></header><main>
+<section class="page cover"><p class="no">AI画像生成・初心者向け</p><h1>はじめの<br><span>画像実践ガイド</span></h1><p class="lead">難しい言葉を覚えるより、まず一枚。<br>相談しながら、少しずつ近づけていきます。</p><img class="hero" src="assets/cover/cover-chatgpt.jpg" width="1402" height="1122" alt="AIと一緒にアイデアを形にするコラージュ"><div class="example"><h3>この表紙に使った2つの参考画像</h3><div class="compare"><figure><button class="pic zoom" data-src="assets/cover/references/character.PNG"><img src="assets/cover/references/character.PNG" width="1254" height="1254" alt="表紙の主役にした丸メガネのキャラクター"></button><figcaption><b>キャラクター参考</b>顔・メガネ・頭身を維持</figcaption></figure><figure><button class="pic zoom" data-src="assets/cover/references/style.JPG"><img src="assets/cover/references/style.JPG" width="600" height="1650" alt="紙や布の重なりと立体感がある画風参考"></button><figcaption><b>画風参考</b>重なり・凹凸・素材感を参考</figcaption></figure></div><details class="prompt"><summary>表紙の実プロンプト</summary><div class="body"><pre id="p-cover">AI部の初心者向け資料の表紙用の画像を作成してください。
+
+目的は、「AIでこんな画像が作れるんだ」と初心者にも直感的に伝わる、魅力的で印象的なビジュアルにすることです。
+
+主役は、添付したキャラクターです。
+このキャラクターの以下の特徴は維持してください。
+
+- スキンヘッド
+- 丸メガネ
+- デフォルメされた可愛い頭身バランス
+- 顔の雰囲気
+
+キャラクターは、楽しそうでワクワクしている様子にしてください。
+構図は、キャラクターの全身が見えるようにしてください。
+
+背景は、未来的なデジタル空間にしてください。
+ネオンが光る未来感のある雰囲気にしつつ、初心者にも親しみやすい、明るく楽しい印象にしてください。
+
+色合いは、全体を薄いブルー基調にしてください。
+そのうえで、明るくカラフルな配色にし、ポイントカラーとして赤を入れてください。
+差し色として、他のカラフルな色を使っても構いません。
+
+表現スタイルは、単なる平面的なイラストではなく、参考画像のような立体感のあるアート表現にしてください。
+特に以下の要素を取り入れてください。
+
+- コラージュのような重なり
+- 凹凸を感じる立体感
+- 紙や布のような質感
+- アート作品のような奥行きのある表現
+
+ただし、主役のキャラクターは見失わないように、分かりやすく目立たせてください。
+複雑になりすぎず、「すごい」「楽しそう」「こんな画像が作れるんだ」と感じられる表紙向けビジュアルにしてください。
+
+服装は固定しなくて構いません。
+必要であれば、未来感と自然さが両立するように、麻などの自然素材を感じさせる服にアレンジしても構いません。
+
+全体として、初心者向け資料の表紙にふさわしい、親しみやすさ、楽しさ、未来感、アート性を両立した画像にしてください。</pre><div class="actions"><button class="copy" data-copy="p-cover">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div></section>
+
+<section class="page"><p class="no">02 / 16</p><h2>伝える内容を、3段階で考えてみる</h2><p class="lead">同じ森のカフェを題材に、どんな言葉を足せるか見てみましょう。</p>
+<div class="example"><figure><button class="pic zoom" data-src="assets/information-level/cafe-short.jpg"><img src="assets/information-level/cafe-short.jpg" width="1672" height="941" alt="短い指示の森のカフェ"></button><figcaption><b>1｜短い指示</b>主題・写真表現・横長を指定</figcaption></figure><details class="prompt"><summary>実際に使ったプロンプト</summary><div class="body"><pre id="p-short">森の中のカフェを、自然な写真として作ってください。
+横長16:9。</pre><div class="actions"><button class="copy" data-copy="p-short">コピー</button></div><p class="status"></p></div></details></div>
+<div class="example"><figure><button class="pic zoom" data-src="assets/information-level/cafe-four-elements.jpg"><img src="assets/information-level/cafe-four-elements.jpg" width="1672" height="941" alt="4要素版の森のカフェ"></button><figcaption><b>2｜最初の4要素</b>用途・主役・状態・場所を追加</figcaption></figure><details class="prompt"><summary>実際に使ったプロンプト</summary><div class="body"><pre id="p-four">用途：
+ウェブサイトで森のカフェを紹介するための横長画像。
+
+主役：
+小さな木造カフェ。
+
+動作・状態：
+窓辺で一人の成人女性がコーヒーを飲んでいる。
+
+場所：
+秋の森の中。
+
+自然な写真として作ってください。
+横長16:9。</pre><div class="actions"><button class="copy" data-copy="p-four">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div>
+<div class="example"><figure><button class="pic zoom" data-src="assets/information-level/cafe-detailed.jpg"><img src="assets/information-level/cafe-detailed.jpg" width="1672" height="941" alt="詳しい指示の森のカフェ"></button><figcaption><b>3｜さらに希望を追加</b>構図・光・色・素材・固定条件を追加</figcaption></figure><details class="prompt"><summary>実際に使ったプロンプト</summary><div class="body"><pre id="p-detail">用途：
+ウェブサイトで森のカフェを紹介するための見出し画像。横長16:9。
+
+主役：
+秋の森に建つ、小さな木造カフェ。
+
+動作・状態：
+窓辺で一人の成人女性が、白い陶器のカップでコーヒーを飲んでいる。
+
+場所：
+深い緑と紅葉が混ざる、静かな秋の森。
+
+構図：
+人の目の高さから、少し離れた位置で建物全体を見る。
+カフェを画面左寄りに置き、右側には見出しを載せられる静かな余白を残す。
+
+光：
+夕方の柔らかい自然光。
+カフェの窓から暖かなオレンジ色の明かりが漏れている。
+
+色：
+深い緑、自然な茶色、暖かなオレンジを中心にする。
+
+素材：
+木の外壁、石の小道、透明な窓ガラスの質感が分かるようにする。
+
+固定条件：
+文字、ロゴ、看板の文字、ほかの人物、車は入れない。
+
+自然で落ち着いた写真として作ってください。</pre><div class="actions"><button class="copy" data-copy="p-detail">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div><p class="point">長さが答えではありません。増えた言葉が、AIの判断材料になります。</p></section>
+
+<section class="page"><p class="no">03 / 16</p><h2>まずは、この4つから</h2><p class="lead">全部決まっていなくても大丈夫。分かるところから伝えます。</p><div class="grid cards"><div class="card"><b>1 用途</b>何に使う？</div><div class="card"><b>2 主役</b>何を中心に？</div><div class="card"><b>3 動作・状態</b>何をしている？</div><div class="card"><b>4 場所</b>どこにいる？</div></div></section>
+<section class="page"><p class="no">04 / 16</p><h2>もっと近づけたいときの、5つ</h2><div class="grid cards"><div class="card"><b>5 構図</b>どこから見る？</div><div class="card"><b>6 光</b>いつ、どこから？</div><div class="card"><b>7 色</b>どんな色を中心に？</div><div class="card"><b>8 素材</b>何でできている？</div><div class="card"><b>9 固定条件</b>何を入れない？</div></div><p class="point">「どこから見るか」を伝えるだけでも、かなり変わります。</p></section>
+<section class="page"><p class="no">05 / 16</p><h2>AIに伝えられる、9つの視点</h2><p class="lead">チェックリストではなく、考えるための引き出しです。</p><button class="pic zoom" data-src="assets/guide-icons/nine-views-v1.png"><img src="assets/guide-icons/nine-views-v1.png" width="1254" height="1254" alt="用途、主役、動作、場所、構図、光、色、素材、固定条件を表す9つのイメージ"></button><div class="grid cards"><div class="card"><b>用途</b>使い道</div><div class="card"><b>主役</b>中心</div><div class="card"><b>動作・状態</b>何をしているか</div><div class="card"><b>場所</b>舞台</div><div class="card"><b>構図</b>見る位置</div><div class="card"><b>光</b>時刻と方向</div><div class="card"><b>色</b>中心色</div><div class="card"><b>素材</b>質感</div><div class="card"><b>固定条件</b>変えないもの</div></div><p class="point">全部入れなくても大丈夫。今回大事なものだけ選びましょう。</p></section>
+<section class="page"><p class="no">06 / 16</p><h2>作る画像で、大事な視点は変わる</h2><div class="steps"><div class="step"><p><b>商品写真</b><br>構図・光・素材を丁寧に</p></div><div class="step"><p><b>物語のある絵</b><br>主役・動作・場所・色を大切に</p></div><div class="step"><p><b>SNSや広告</b><br>用途・余白・色・固定条件を先に</p></div></div><p class="point">固定の正解はありません。「今回は何が大事？」と考えればOKです。</p></section>
+
+<section class="page"><p class="no">07 / 16</p><h2>同じ内容でも、見せ方を変えられる</h2><p class="lead">「何を描くか」は同じ。変えるのは「どう表現するか」です。</p>
+<div class="example style" data-name="写真" data-img="assets/style/cafe-photo.jpg" data-id="photo"><figure><button class="pic zoom" data-src="assets/style/cafe-photo.jpg"><img src="assets/style/cafe-photo.jpg" width="1672" height="941" alt="写真の森のカフェ"></button><figcaption><b>写真</b>現実感を出したいとき</figcaption></figure><details class="prompt"><summary>写真版の実プロンプト</summary><div class="body"><pre id="p-photo">用途：ウェブサイトで森のカフェを紹介するための見出し画像。横長16:9。
+主役：秋の森に建つ、小さな木造カフェ。
+動作・状態：窓辺で一人の成人女性が、白い陶器のカップでコーヒーを飲んでいる。
+場所：深い緑と紅葉が混ざる、静かな秋の森。
+構図：人の目の高さから少し離れ、建物全体を見る。カフェを左寄りにし、右側に見出し用の静かな余白を残す。
+光：夕方の柔らかい自然光。窓から暖かなオレンジ色の明かり。
+色：深い緑、自然な茶色、暖かなオレンジ。
+素材：木の外壁、石の小道、透明な窓ガラス。
+固定条件：文字、ロゴ、看板の文字、ほかの人物、車は入れない。
+自然で落ち着いた写真として作ってください。</pre><div class="actions"><button class="copy" data-copy="p-photo">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div>
+<div class="example"><figure><button class="pic zoom" data-src="assets/style/cafe-illustration.jpg"><img src="assets/style/cafe-illustration.jpg" width="1672" height="941" alt="絵本イラストの森のカフェ"></button><figcaption><b>イラスト</b>やわらかく伝えたいとき</figcaption></figure><details class="prompt"><summary>イラスト版の実プロンプト</summary><div class="body"><pre id="p-illust">添付画像の内容、人物、建物、配置、構図は保ってください。
+
+表現方法だけを、柔らかな手描きの絵本イラストに変更してください。
+
+落ち着いた線、少し紙の質感が感じられる色面、暖かな秋の色合いで表現してください。
+
+人物の位置、カフェの形、窓、石の小道、右側の余白は変更しないでください。
+
+文字やロゴは入れないでください。</pre><div class="actions"><button class="copy" data-copy="p-illust">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div>
+<div class="example"><figure><button class="pic zoom" data-src="assets/style/cafe-poster.jpg"><img src="assets/style/cafe-poster.jpg" width="1672" height="941" alt="ポスターの森のカフェ"></button><figcaption><b>ポスター</b>目を引かせたいとき</figcaption></figure><details class="prompt"><summary>ポスター版の実プロンプト</summary><div class="body"><pre id="p-poster">添付画像の内容、人物、建物、配置、構図は保ってください。
+
+表現方法だけを、余白を活かしたミニマルな旅行広告ポスター風のデザインに変更してください。
+
+細かな写実表現を減らし、深い緑、茶色、暖かなオレンジの大きな色面と、単純化した形で表現してください。
+
+人物の位置、カフェの形、窓、石の小道、右側の余白は変更しないでください。
+
+目に見える文字、タイトル、ロゴは入れないでください。</pre><div class="actions"><button class="copy" data-copy="p-poster">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div></section>
+
+<section class="page"><p class="no">08 / 16</p><h2>AIごとの見え方を、複数例で比べる</h2><p class="lead">同じテーマでも、構図や色、雰囲気はさまざまです。ここでは2組の教材例を見比べます。</p>
+<div class="example"><h3>比較例A｜森の中のカフェ</h3><div class="compare"><figure><button class="pic zoom" data-src="assets/chatgpt-gemini/chatgpt.jpg"><img src="assets/chatgpt-gemini/chatgpt.jpg" width="1672" height="941" alt="ChatGPTの森のカフェ"></button><figcaption><b>ChatGPT</b></figcaption></figure><figure><button class="pic zoom" data-src="assets/chatgpt-gemini/gemini.jpg"><img src="assets/chatgpt-gemini/gemini.jpg" width="1376" height="768" alt="Geminiの森のカフェ"></button><figcaption><b>Gemini</b></figcaption></figure></div><details class="prompt"><summary>実際に使った共通プロンプト</summary><div class="body"><pre id="p-ca"></pre><div class="actions"><button class="copy" data-copy="p-ca">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div>
+<div class="example"><h3>比較例B｜AI初心者向けの表紙</h3><div class="compare"><figure><button class="pic zoom" data-src="assets/cover/cover-chatgpt.jpg"><img src="assets/cover/cover-chatgpt.jpg" width="1402" height="1122" alt="ChatGPTの表紙"></button><figcaption><b>ChatGPT</b></figcaption></figure><figure><button class="pic zoom" data-src="assets/chatgpt-gemini/gemini-cover.jpg"><img src="assets/chatgpt-gemini/gemini-cover.jpg" width="896" height="1200" alt="Geminiの表紙"></button><figcaption><b>Gemini</b></figcaption></figure></div><details class="prompt"><summary>実際に使った共通プロンプト</summary><div class="body"><pre id="p-cb"></pre><div class="actions"><button class="copy" data-copy="p-cb">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div><p class="point">勝ち負けではありません。生成するたびにも結果は変わります。イメージに近いものを選べばOKです。</p></section>
+
+<section class="page"><p class="no">09 / 16</p><h2>無料枠だから、作る前に相談する</h2><p class="lead">うまく言葉にできなくても大丈夫。画像を作る前に、AIと一緒に整理できます。</p><div class="steps"><div class="step"><p>作りたいものを話す</p></div><div class="step"><p>大事な視点を選ぶ</p></div><div class="step"><p>完成した指示文を確認</p></div><div class="step"><p>そのあと画像を作る</p></div></div><details class="prompt"><summary>相談用の実プロンプト</summary><div class="body"><pre id="p-consult">作りたい画像について一緒に考えてください。
+
+私は画像生成の初心者です。
+一度にたくさん質問せず、答えやすい質問を一つずつしてください。
+
+次の9つの視点から、今回の画像に必要なものを整理してください。
+
+1. 用途
+2. 主役
+3. 動作・状態
+4. 場所
+5. 構図
+6. 光
+7. 色
+8. 素材
+9. 固定条件
+
+9項目すべてを無理に使う必要はありません。
+今回の画像にとって重要なものを一緒に選んでください。
+
+質問が終わったら、ChatGPTまたはGeminiへそのまま入力できる、分かりやすい日本語の画像生成指示にまとめてください。
+
+画像はまだ生成せず、最初に完成した指示文を私に確認させてください。</pre><div class="actions"><button class="copy" data-copy="p-consult">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></section>
+<section class="page"><p class="no">10 / 16</p><h2>一回で完成させなくていい</h2><div class="steps"><div class="step"><p>作る</p></div><div class="step"><p>よく見る</p></div><div class="step"><p>気になるところを1つ決める</p></div><div class="step"><p>そこだけ直す</p></div></div></section>
+<section class="page"><p class="no">11 / 16</p><h2>修正するときは、この3つ</h2><div class="grid cards"><div class="card"><b>どこを</b>カーディガンだけ</div><div class="card"><b>どう変える</b>淡いブルーに</div><div class="card"><b>何を変えない</b>顔・姿勢・背景</div></div><div class="compare example"><figure><button class="pic zoom" data-src="assets/edit-color/before.jpg"><img src="assets/edit-color/before.jpg" width="1672" height="941" alt="色変更前"></button><figcaption><b>修正前</b></figcaption></figure><figure><button class="pic zoom" data-src="assets/edit-color/after.jpg"><img src="assets/edit-color/after.jpg" width="1672" height="941" alt="色変更後"></button><figcaption><b>修正後</b></figcaption></figure></div><div class="example"><h3>① 比較用の元画像を作る</h3><details class="prompt"><summary>①の実プロンプト</summary><div class="body"><pre id="p-edit-base">画像修正の比較教材に使う、自然な写真を作ってください。
+
+森を望むカフェの窓辺に、一人の成人女性が座っています。
+女性は胸から上がはっきり見える大きさです。
+
+ベージュのカーディガンを着て、白い陶器のカップを両手で持っています。
+肩までの黒髪で、穏やかな自然な表情です。
+
+窓の左側から柔らかな夕方の光が入っています。
+背景には秋の森が柔らかくぼけて見えます。
+
+横長16:9。
+文字、ロゴ、ほかの人物は入れないでください。</pre><div class="actions"><button class="copy" data-copy="p-edit-base">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div><div class="example"><h3>② 変える場所と残す場所を伝える</h3><details class="prompt"><summary>②の実プロンプト</summary><div class="body"><pre id="p-edit">女性のベージュのカーディガンだけを、淡いブルーに変更してください。
+
+顔、髪型、表情、肌、手、白いカップ、姿勢、背景、構図、光は変更しないでください。</pre><div class="actions"><button class="copy" data-copy="p-edit">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div></section>
+<section class="page"><p class="no">12 / 16</p><h2>場所を言いづらいなら、印を付ける</h2><div class="grid"><figure><button class="pic zoom" data-src="assets/edit-marker/before.jpg"><img src="assets/edit-marker/before.jpg" width="1672" height="941" alt="元画像"></button><figcaption><b>1｜元画像</b></figcaption></figure><figure><button class="pic zoom" data-src="assets/edit-marker/marked.jpg"><img src="assets/edit-marker/marked.jpg" width="1672" height="941" alt="赤丸で指定"></button><figcaption><b>2｜赤丸で指定</b></figcaption></figure><figure><button class="pic zoom" data-src="assets/edit-marker/after.jpg"><img src="assets/edit-marker/after.jpg" width="1672" height="941" alt="完成画像"></button><figcaption><b>3｜完成</b></figcaption></figure></div><div class="example"><h3>① 比較用の元画像を作る</h3><details class="prompt"><summary>①の実プロンプト</summary><div class="body"><pre id="p-mark-base">部分修正の比較教材に使う、自然な風景写真を作ってください。
+
+秋の森の中に、小さな木造カフェがあります。
+
+画面左手前には、一本だけ太い濃い緑色の木があり、カフェの入口の一部を隠しています。
+
+カフェは画面中央から右側に配置してください。
+人の目の高さから、少し離れた位置で建物全体を見ています。
+
+夕方の柔らかな自然光。
+横長16:9。
+
+人物、車、文字、ロゴは入れないでください。</pre><div class="actions"><button class="copy" data-copy="p-mark-base">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div><div class="example"><h3>② 赤丸の場所だけを直す</h3><details class="prompt"><summary>②の実プロンプト</summary><div class="body"><pre id="p-mark">赤丸で囲った、画面左手前の太い木だけを削除してください。
+
+削除した場所は、周囲と同じ秋の森と地面が自然につながるように補ってください。
+
+カフェ、入口、背景の木々、地面、構図、色、光は変更しないでください。
+
+赤丸の線は最終画像に残さないでください。</pre><div class="actions"><button class="copy" data-copy="p-mark">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div></section>
+<section class="page"><p class="no">13 / 16</p><h2>参考画像は、2段階で使う</h2><p class="lead">①特徴を言葉にしてもらう。②使いたい特徴だけを選んで、別の題材へ応用します。</p><div class="grid"><figure><button class="pic zoom" data-src="assets/gallery-new/paper-village.JPG"><img src="assets/gallery-new/paper-village.JPG" width="352" height="801" alt="紙を重ねた月夜の村"></button><figcaption><b>実際に使った参考画像</b>色・紙の質感・重なり</figcaption></figure><figure><button class="pic zoom" data-src="assets/reference/applied-cafe.jpg"><img src="assets/reference/applied-cafe.jpg" width="1672" height="941" alt="特徴を応用した森のカフェ"></button><figcaption><b>別テーマへ応用</b>秋の森の小さなカフェ</figcaption></figure></div><div class="example"><h3>① まず、特徴を言葉にする</h3><details class="prompt"><summary>①の実プロンプト</summary><div class="body"><pre id="p-ref-1">この参考画像の特徴を、次の項目に分けて、初心者にも分かる言葉で説明してください。
+
+・色
+・素材や質感
+・形
+・光と影
+・構図
+・雰囲気
+
+特定の作家名や作品名は使わないでください。</pre><div class="actions"><button class="copy" data-copy="p-ref-1">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div><div class="example"><h3>② 選んだ特徴だけを応用する</h3><details class="prompt"><summary>②の実プロンプト</summary><div class="body"><pre id="p-ref-2">添付した参考画像から、次の特徴だけを参考にしてください。
+
+・藍、サフラン、生成りの3色
+・手で切った紙を5層重ねたような質感
+・紙の端の毛羽立ち
+・長く柔らかい影
+
+参考画像の建物、村、道、月、配置、構図はまねしないでください。
+
+新しい題材として、秋の森の中にある小さなカフェを表現してください。
+
+横長16:9。
+人物、文字、ロゴは入れないでください。</pre><div class="actions"><button class="copy" data-copy="p-ref-2">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details></div><p class="point">建物や構図はまねせず、好きな特徴だけを借ります。</p></section>
+
+<section class="page"><p class="no">14 / 16</p><h2>画像生成では、こんなことまでできる</h2><p class="lead">一枚ずつ、タップして見てみてください。</p><div class="grid gallery"><figure><button class="pic zoom" data-src="assets/gallery-new/lighthouse.JPG"><img loading="lazy" src="assets/gallery-new/lighthouse.JPG" width="309" height="823" alt="遠景の灯台へ続く港町"></button><figcaption>奥行きのある情景</figcaption></figure><figure><button class="pic zoom" data-src="assets/gallery-new/paper-village.JPG"><img loading="lazy" src="assets/gallery-new/paper-village.JPG" width="352" height="801" alt="紙を重ねた月夜の村"></button><figcaption>紙の素材表現</figcaption></figure><figure><button class="pic zoom" data-src="assets/gallery-new/clay-village.JPG"><img loading="lazy" src="assets/gallery-new/clay-village.JPG" width="312" height="801" alt="粘土で作った村"></button><figcaption>粘土の素材表現</figcaption></figure><figure><button class="pic zoom" data-src="assets/gallery-new/product-cup.JPG"><img loading="lazy" src="assets/gallery-new/product-cup.JPG" width="315" height="840" alt="青いカップの商品写真"></button><figcaption>商品写真</figcaption></figure><figure><button class="pic zoom" data-src="assets/gallery-new/text-space.JPG"><img loading="lazy" src="assets/gallery-new/text-space.JPG" width="315" height="840" alt="右側に文字用余白がある商品画像"></button><figcaption>文字を置く余白</figcaption></figure><figure><button class="pic zoom" data-src="assets/gallery-new/story-cyclist.JPG"><img loading="lazy" src="assets/gallery-new/story-cyclist.JPG" width="388" height="823" alt="海辺を走る自転車配達員"></button><figcaption>物語のある一場面</figcaption></figure></div></section>
+<section class="page"><p class="no">15 / 16</p><h2>では、自分の一枚を作ってみよう</h2><div class="steps"><div class="step"><p>AIへ相談</p></div><div class="step"><p>大事な視点を選ぶ</p></div><div class="step"><p>生成前に指示文を確認</p></div><div class="step"><p>画像を生成</p></div><div class="step"><p>気になるところを1つ修正</p></div></div><details class="prompt"><summary>相談用の実プロンプト</summary><div class="body"><pre id="p-consult-15"></pre><div class="actions"><button class="copy" data-copy="p-consult-15">コピー</button><button class="close">閉じる ▲</button></div><p class="status"></p></div></details><p class="point">まず一枚、作って見てみましょう。</p></section>
+<section class="page cover"><p class="no">16 / 16</p><h2>無料枠は、役割を分ける案もある</h2><p class="lead">本番の一枚を作る前に、別のAIでプロンプトを練習する使い方です。</p><div class="use-plan"><div class="card"><b>ChatGPT｜本番用</b>相談して整えた指示で、残しておきたい画像を生成する。</div><div class="card"><b>Gemini｜練習用</b>言葉の足し方や見せ方を試し、プロンプトを整える練習に使う。</div></div><p class="point">これは一つの使い分け案です。無料枠や使いやすさに合わせて、役割を入れ替えても大丈夫です。</p></section></main><footer>AI部｜AI画像生成 はじめての画像生成実践ガイド</footer>
+<dialog id="viewer"><button class="x" aria-label="閉じる">×</button><img alt=""></dialog><script>
+document.querySelector('.cover h1').innerHTML='はじめての<br><span>画像生成</span><br>実践ガイド';const headingBreaks={'伝える内容を、3段階で考えてみる':'伝える内容を、<br>3段階で考えてみる','もっと近づけたいときの、5つ':'もっと近づけたい。<br>そんなときの、5つ','AIに伝えられる、9つの視点':'AIに伝えられる、<br>9つの視点','作る画像で、大事な視点は変わる':'作る画像で、<br>大事な視点は変わる','同じ内容でも、見せ方を変えられる':'同じ内容でも、<br>見せ方を変えられる','AIごとの見え方を、複数例で比べる':'AIごとの見え方を、<br>複数例で比べる','無料枠だから、作る前に相談する':'無料枠だから、<br>作る前に相談する','一回で完成させなくていい':'一回で完成しない前提で<br>考えたほうがいい','修正するときは、この3つ':'修正するときは、<br>この3つ','場所を言いづらいなら、印を付ける':'場所を言いづらいなら<br>印を付ける','参考画像は、2段階で使う':'参考画像の<br>特徴だけを使う','画像生成では、こんなことまでできる':'画像生成表現の、<br>多様なテクニック'};document.querySelectorAll('h2').forEach(h=>{if(headingBreaks[h.textContent.trim()])h.innerHTML=headingBreaks[h.textContent.trim()]});const referencePage=document.getElementById('p-ref-1').closest('.page');referencePage.querySelector('.lead').innerHTML='参考画像を丸ごとまねるのではなく、<br>「色と質感だけ」のように、<strong>参考にする役割を限定する</strong>方法です。';
+document.getElementById('p-photo').textContent=document.getElementById('p-detail').textContent;document.getElementById('p-ca').textContent=document.getElementById('p-detail').textContent;document.getElementById('p-cb').textContent=document.getElementById('p-cover').textContent;document.getElementById('p-consult-15').textContent=document.getElementById('p-consult').textContent;
+const nineSection=[...document.querySelectorAll('.page')].find(s=>s.textContent.includes('AIに伝えられる、9つの視点'));const nineVisual=nineSection.querySelector('button[data-src*="nine-views"]');nineVisual.classList.add('nine-views-visual');const iconPositions={'用途':'0% 0%','主役':'50% 0%','動作・状態':'100% 0%','場所':'0% 50%','構図':'50% 50%','光':'100% 50%','色':'0% 100%','素材':'50% 100%','固定条件':'100% 100%'};document.querySelectorAll('.cards .card').forEach(card=>{const key=Object.keys(iconPositions).find(k=>card.querySelector('b')?.textContent.includes(k));if(!key)return;const icon=document.createElement('span');icon.className='view-icon';icon.style.backgroundPosition=iconPositions[key];icon.setAttribute('aria-hidden','true');card.prepend(icon)});
+const coverBlock=document.querySelector('.cover .example');const compareB=[...document.querySelectorAll('.example')].find(e=>e.querySelector('h3')?.textContent.includes('比較例B'));const refHeading=coverBlock.querySelector('h3');const refImages=coverBlock.querySelector('.compare');compareB.insertBefore(refHeading,compareB.querySelector('details'));compareB.insertBefore(refImages,compareB.querySelector('details'));coverBlock.remove();
+document.getElementById('p-ref-1').closest('.page').classList.add('reference-page');
+document.querySelectorAll('.close').forEach(b=>b.onclick=()=>{const d=b.closest('details');d.open=false;d.querySelector('summary').focus()});document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const s=b.closest('.body').querySelector('.status');try{await navigator.clipboard.writeText(document.getElementById(b.dataset.copy).innerText);s.textContent='コピーしました';b.textContent='コピー済み'}catch(e){s.textContent='長押しして選択してください'}setTimeout(()=>{s.textContent='';b.textContent='コピー'},2000)});const d=document.querySelector('#viewer'),im=d.querySelector('img');document.querySelectorAll('.zoom').forEach(b=>b.onclick=()=>{im.src=b.dataset.src;im.alt=b.querySelector('img').alt;d.showModal()});d.querySelector('.x').onclick=()=>d.close();d.onclick=e=>{if(e.target===d)d.close()};
+</script></body></html>
