@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>AIで自己紹介カードを作ろう｜AI部</title>
+  <style>
+    :root{--bg:#fffaf4;--paper:#fff;--ink:#302a2c;--body:#655b5f;--coral:#d95765;--coral-soft:#fff0f2;--mint:#347f74;--mint-soft:#e8f6f2;--purple:#655bb7;--line:#ead7d0}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e8f6f2 0,#fffaf4 330px);color:var(--body);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}.page{width:min(calc(100% - 24px),720px);margin:auto;padding:20px 0 64px}.hero,.panel{margin:16px 0;padding:28px 22px;border:1px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:0 12px 34px #432b3112}.hero{text-align:center;background:linear-gradient(145deg,#fff,#fff2ed)}.tag{display:inline-block;margin:0 0 14px;padding:5px 13px;border-radius:999px;background:var(--coral-soft);color:#a83343;font-size:.82rem;font-weight:900}h1,h2,p{margin-top:0}h1{margin-bottom:14px;color:var(--ink);font-size:clamp(2.25rem,11vw,4.25rem);line-height:1.08}h1 span{color:var(--coral)}h2{margin-bottom:12px;color:var(--ink);font-size:1.45rem;line-height:1.35}.lead{margin:0;color:var(--ink);font-size:1.05rem;font-weight:700}.steps{display:grid;gap:12px;margin-top:20px;counter-reset:step}.step{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:center;padding:14px;border-radius:16px;background:var(--mint-soft);color:var(--ink);font-weight:700}.step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--mint);color:#fff;font-weight:900}.note{margin:18px 0 0;padding:14px;border-radius:14px;background:#fff7dc;color:#715510;font-size:.9rem}.prompt{margin-top:18px;padding:16px;border-radius:16px;background:#f7f4f5;color:var(--ink);font-size:.96rem;line-height:1.7;white-space:pre-wrap}.copy{display:block;width:100%;min-height:54px;margin-top:14px;border:0;border-radius:999px;background:var(--purple);color:#fff;font:inherit;font-weight:900;cursor:pointer;touch-action:manipulation}.copy:hover{filter:brightness(.95)}.copy:focus-visible{outline:4px solid #c8c2ff;outline-offset:3px}.status{min-height:1.6em;margin:8px 0 0;color:var(--mint);text-align:center;font-size:.9rem;font-weight:800}.small{margin-bottom:0;font-size:.9rem}@media(min-width:600px){.hero,.panel{padding:42px}.steps{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="tag">AI部・かんたん画像づくり</p>
+      <h1>AIで<br><span>自己紹介カード</span>を作ろう</h1>
+      <p class="lead">自分一人だけが写った画像を使い、2つのプロンプトから好きな表現を選んで作ります。</p>
+    </section>
+
+    <section class="panel">
+      <h2>作り方は4ステップ</h2>
+      <div class="steps">
+        <div class="step">2つから好きな方を選ぶ</div>
+        <div class="step">自分一人の画像を添付</div>
+        <div class="step">プロンプトをコピーして送る</div>
+        <div class="step">AIにカードを作ってもらう</div>
+      </div>
+      <p class="note">集合写真ではなく、自分一人だけが写った画像を使います。本名、住所、電話番号、勤務先など、知られたら困る情報は入れなくて大丈夫です。</p>
+    </section>
+
+    <section class="panel">
+      <p class="tag">プロンプト 1</p>
+      <h2>会話から「生き方」を一枚にする</h2>
+      <p>これまでの会話をもとに、価値観や願いをポップな現代ポスターアートとして表現します。</p>
+      <p class="note">自分一人だけが写った画像を添付し、このプロンプトと一緒に送ります。</p>
+      <div class="prompt" id="prompt-1">あなたは世界最高峰のエディトリアルアートディレクター、ブランドストーリーテラー、ファッションデザイナー、グラフィックアーティストです。あなたの仕事は人物の似顔絵を描くことではありません。このAIを使う人との会話全体から、その人の人生、価値観、哲学、仕事への姿勢、人との関わり方、乗り越えてきた経験、静かな強さ、優しさ、未来への願い、届けたい価値を深く理解し、その人の「生き方」そのものを、一枚のポップグラフィックエディトリアルアートへ翻訳してください。分析するのは外見ではなく人生です。人物ではなく、その人だけのブランドをデザインしてください。  作品は雑誌の表紙でも広告でもなく、その人自身がブランドとなる一枚のビジュアルアイデンティティです。人物は主役であると同時に、ポスターを構成するデザイン要素でもあります。背景、余白、色彩、線、図形、タイポグラフィ、ファッション、アクセサリーまで一体となり、美術館に飾られる現代ポスターアートの完成度を目指してください。  画風は日本の現代イラストレーション、海外ポスターアート、北欧デザイン、ファッションエディトリアルを融合した世界観です。  リアルな肖像画や3DCGではなく、セル画のようなフラットな色面を基本とし、影は2〜3段階程度に簡略化してください。立体感よりもグラフィックデザインとしての美しさを優先します。人物は胸上または全身を大胆に構成し、横顔、斜め横顔、振り返る瞬間、歩き出す姿、風を感じる一瞬など、映画のワンシーンを切り取ったような構図で描いてください。  配色は作品の個性そのものです。会話から感じ取れる価値観、使命、感情、未来への想いを読み取り、その人物だけのメインカラーを毎回新しく設計してください。ビビッドカラーを1〜3色軸とし、ターコイズ、シアン、コーラル、ビビッドピンク、マゼンタ、オレンジ、レッド、イエロー、ライム、エメラルド、パープル、ロイヤルブルーなど鮮やかな色彩を自由に組み合わせ、毎回異なる世界観を創り出してください。同じ配色や同じレイアウトを繰り返さず、背景の約50〜60％を大胆な色面で構成してください。  背景は風景ではありません。  円、半円、カラーブロック、ブラシストローク、幾何学図形、ハーフトーン、グラフィカルライン、コラージュ、インクスプラッシュ、紙の質感、手描きテクスチャなどを自由に組み合わせ、余白もデザインとして活かしてください。一瞬で目を奪われ、「この人は誰だろう」と興味を抱かせるポスターを目指してください。  髪は一本一本描き込まず、大きな毛束で構成し、必要に応じてビビッドなアクセントカラーを入れても構いません。顔はやや小顔、首は長め、目は少し大きめで、知性、優しさ、静かな強さ、未来への希望が自然に伝わる表情にしてください。  ファッションは人生を語る言語です。世界最高峰のメゾンが、その人一人のためだけに仕立てた一点物という設定で、ブランドを模倣せず完全オリジナルデザインにしてください。帽子、ベレー帽、ハット、眼鏡、サングラス、イヤーカフ、ピアス、ネックレス、ブローチ、リング、時計、バッグ、スカーフ、ヘアアクセサリーなどを自由に組み合わせ、それぞれが人生、信念、挑戦、希望、優しさを象徴する意味を持つデザインとしてください。  作品内のすべての要素には意味を持たせてください。  服は人生哲学、色は感情、余白は未来、線は歩み、構図は生き方、図形は思考の広がり、アクセントカラーは希望を象徴します。偶然選ばれる要素は一つもありません。最後に、その人の使命を象徴する英単語を一語だけ美しい手書き文字で小さく配置し、その下へ50文字以内の日本語で余韻を残す一文を添えてください。説明ではなく、見る人が「この人はどんな人生を歩み、どんな未来を育てる人なのだろう」と想像したくなる、唯一無二のグラフィックエディトリアルアートとして完成させてください。</div>
+      <button class="copy" type="button" data-copy="prompt-1">プロンプト1をコピー</button>
+      <p class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <p class="tag">プロンプト 2</p>
+      <h2>写真を情報ポスターにする</h2>
+      <p>自分の写真を添付し、スキルや興味などを整理した現代的なインフォグラフィックにします。</p>
+      <p class="note">自分一人だけが写った画像を添付し、このプロンプトと一緒に送ります。</p>
+      <div class="prompt" id="prompt-2">Please generate an infographic poster based on the attached image, styled with modern graphic design elements.
+
+Use bold, sans-serif typography with high-contrast text overlays, geometric shapes, line drawings, and functional callouts with arrows or labels pointing to key features. Include relevant icons, structured content sections, and clean, balanced layouts with generous negative space. Use a contemporary color palette—such as vibrant accents mixed with muted or monochromatic backgrounds—to maintain a professional, sharp, and structured feel, like an editorial layout or technical product showcase.
+
+Incorporate relevant personal information—such as skills, interests, title, or biography—retrieved from memory or previous conversation context, and visually highlight it using structured modules, badge-style labels, and clean graphical callouts.</div>
+      <button class="copy" type="button" data-copy="prompt-2">プロンプト2をコピー</button>
+      <p class="status" aria-live="polite"></p>
+      <p class="small">AIに使ってほしくない情報がある場合は、画像を作る前に会話内容を確認しましょう。</p>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('.copy').forEach(button=>{
+      const original=button.textContent;
+      const status=button.nextElementSibling;
+      button.addEventListener('click',async()=>{
+        const text=document.getElementById(button.dataset.copy).innerText;
+        try{await navigator.clipboard.writeText(text);button.textContent='コピーしました ✓';status.textContent='ChatGPTやGeminiに貼り付けてください';}
+        catch(error){status.textContent='長押しして文章を選び、コピーしてください';}
+        setTimeout(()=>{button.textContent=original;status.textContent='';},2600);
+      });
+    });
+  </script>
+</body>
+</html>
