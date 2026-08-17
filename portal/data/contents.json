@@ -1,0 +1,105 @@
+{
+  "categories": [
+    { "id": "personal-ai", "title": "自分専用のAIを作ろう", "order": 1 },
+    { "id": "ai-basics", "title": "AIをはじめよう", "order": 2 },
+    { "id": "image-creation", "title": "AIで画像を作ろう", "order": 3 }
+  ],
+  "contents": [
+    {
+      "id": "ai-profile-concierge",
+      "section": "personal-ai",
+      "order": 1,
+      "title": "AIプロフィールコンシェルジュ",
+      "description": "AIとの対話を通して、ChatGPTやGeminiに渡せる自分専用プロフィールを作ります。",
+      "url": "",
+      "status": "link-pending",
+      "badge": "まずはここから",
+      "icon": "profile",
+      "external": true
+    },
+    {
+      "id": "safe-ai-use",
+      "section": "personal-ai",
+      "order": 2,
+      "title": "安心してAIを使うために",
+      "description": "ChatGPTとGeminiの初期設定や、個人情報・セキュリティの基本をまとめます。",
+      "url": "",
+      "status": "coming-soon",
+      "badge": "準備中",
+      "icon": "shield",
+      "external": false
+    },
+    {
+      "id": "ai-basics",
+      "section": "ai-basics",
+      "order": 1,
+      "title": "AIの超基礎知識",
+      "description": "AIとは何か、何ができるのか。最初に知っておきたい基本をやさしく紹介します。",
+      "url": "../",
+      "status": "active",
+      "badge": "",
+      "icon": "bulb",
+      "external": false
+    },
+    {
+      "id": "ai-glossary",
+      "section": "ai-basics",
+      "order": 2,
+      "title": "AI用語集",
+      "description": "AIでよく聞く言葉を、初心者にも分かる表現でやさしく解説します。",
+      "url": "../glossary/",
+      "status": "active",
+      "badge": "",
+      "icon": "book",
+      "external": false
+    },
+    {
+      "id": "effective-ai-use",
+      "section": "ai-basics",
+      "order": 3,
+      "title": "AIの効果的な使い方",
+      "description": "AIへの伝え方や、相談しながら答えを整えていくコツを紹介します。",
+      "url": "../prompt-guide/",
+      "status": "active",
+      "badge": "",
+      "icon": "chat",
+      "external": false
+    },
+    {
+      "id": "first-image-generation",
+      "section": "image-creation",
+      "order": 1,
+      "title": "初めての画像生成 実践ガイド",
+      "description": "ChatGPTやGeminiと相談しながら、初めての一枚を作る流れを学べます。",
+      "url": "../lesson-3/",
+      "status": "active",
+      "badge": "",
+      "icon": "image",
+      "external": false
+    },
+    {
+      "id": "image-prompt-45",
+      "section": "image-creation",
+      "order": 2,
+      "title": "画像生成をもっと思い通りに近づけよう",
+      "description": "用途・構図・光・色・素材など、作りたいイメージを伝えやすくする45のヒントです。",
+      "url": "https://ai-image-prompt-45-jp.skinshinfeel.chatgpt.site/guide",
+      "status": "active",
+      "badge": "",
+      "icon": "sliders",
+      "external": true
+    },
+    {
+      "id": "self-introduction-card",
+      "section": "image-creation",
+      "order": 3,
+      "title": "AIで自己紹介カードを作ろう",
+      "description": "自分の写真と用意されたプロンプトを使って、AIで自己紹介カードを作ります。",
+      "url": "../self-introduction-card/",
+      "status": "active",
+      "badge": "",
+      "icon": "idCard",
+      "external": false
+    }
+  ]
+}
