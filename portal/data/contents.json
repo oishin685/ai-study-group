@@ -11,8 +11,8 @@
       "order": 1,
       "title": "AIプロフィールコンシェルジュ",
       "description": "AIとの対話を通して、ChatGPTやGeminiに渡せる自分専用プロフィールを作ります。",
-      "url": "",
-      "status": "link-pending",
+      "url": "https://chatgpt.com/g/g-6a4e30e8cbe4819192530d1e82ef5c81-aihurohuirukonsierusiyu",
+      "status": "active",
       "badge": "まずはここから",
       "icon": "profile",
       "external": true
