@@ -34,6 +34,24 @@
       line-height: 1.55;
     }
 
+    .portal-return {
+      display: grid;
+      width: min(calc(100% - 24px), 720px);
+      min-height: 48px;
+      margin: 16px auto 0;
+      padding: 10px 18px;
+      place-items: center;
+      border: 2px solid var(--accent);
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .portal-return:focus-visible { outline: 4px solid #4b90d6; outline-offset: 4px; }
+
     .deck {
       display: grid;
       gap: 28px;
@@ -333,6 +351,7 @@
   </style>
 </head>
 <body>
+  <a class="portal-return" href="./portal/">AI部 学びのポータルへ戻る</a>
   <main class="deck">
     <section class="slide cover">
       <div class="canvas">

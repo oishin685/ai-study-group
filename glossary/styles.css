@@ -90,7 +90,9 @@ a:focus-visible {
 
 .brand__name { font-size: 1.05rem; }
 
-.header-link {
+.portal-header { justify-content: center; }
+
+.portal-return {
   display: inline-grid;
   place-items: center;
   min-height: 48px;
@@ -107,7 +109,7 @@ a:focus-visible {
   transition: border-color 180ms ease, background-color 180ms ease;
 }
 
-.header-link:hover {
+.portal-return:hover {
   border-color: var(--link-blue-hover);
   background: var(--link-blue-hover);
 }
